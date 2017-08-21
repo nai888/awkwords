@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Awkwords help</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="content-language" content="en">
+<meta http-equiv="expires" content="Sun 26 Jun 2005 12:00:00 GMT">
+<link rel="stylesheet" href="help.css" type="text/css" media="all">
+<link rel="shortcut icon" href="help-favicon.ico" type="image/ico">
+</head>
+<body>
+<!-- web stats [nv.cz]
+<div id="counter">
+<script src="http://c1.navrcholu.cz/code?site=85435;t=lb14"
+type="text/javascript"></script><noscript><div><a
+href="http://navrcholu.cz/"><img
+src="http://c1.navrcholu.cz/hit?site=85435;t=lb14;ref=;jss=0"
+width="14" height="14" alt="NAVRCHOLU.cz"
+style="border:none" /></a></div></noscript>
+</div>
+-->
+<a href="#"><h1>Awkwords help</h1></a>
+<div id="toc">
+<div class="heading">Contents: </div>
+<ul>
+<li><a href="#Using_Awkwords">Using Awkwords</a>
+  <ul>
+  <li><a href="#Concept">Concept</a></li>
+  <li><a href="#Basic_syntax">Basic syntax</a></li>
+  <li><a href="#Assigning_weights">Assigning weights</a></li>
+  <li><a href="#Escaping_characters">Escaping characters</a></li>
+  <li><a href="#Pattern_filtering">Pattern filtering</a></li>
+  <li><a href="#Generating_words">Generating words</a></li>
+  <li><a href="#Saving_and_loading_settings">Saving and loading settings</a></li>
+  </ul>
+</li>
+<li><a href="#About">About</a>
+  <ul>
+  <li><a href="#Credits_and_license">Credits and license</a></li>
+  <li><a href="#Changelog">Changelog</a></li>
+  </ul>
+</li>
+<li><a href="#Download">Download</a></li>
+</ul>
+</div>
+<h2 id="Using_Awkwords">Using Awkwords</h2>
+<div id="introsec">
+<h3 id="Introduction">Introduction: what Awkwords is</h3>
+<p>Awkwords is a simple online application that randomly generates words based on a given pattern. 
+You can use it to make words for a constructed language, to get an original nickname, just for fun or whatever.</p>
+<p class="note">note: Awkwords the word generator has nothing to do with <a href="http://awk.info/?doc/tools/awkwords.html">Awkwords the documentation markup language</a> nor with the awk text processing language as such. 
+The matching names are purely coincidental.</p>
+<div class="clear">&nbsp;</div>
+</div>
+<h3 id="Concept">Concept</h3>
+<p>The most notable parts of the generator's interface are the parts labeled <i>shortcuts</i> and <i>pattern</i>.
+Shortcuts allow you to assign each capital letter something to generate. Everywhere you use 
+one of them in the word pattern the content assigned to it will be used in that place. 
+It's useful to put the language's sounds here.</p>
+<p>There are several predefined groups of sounds - V for <u>v</u>owels, C for <u>c</u>onsonants, T for s<u>t</u>ops, 
+F for <u>f</u>ricatives, and N for <u>n</u>asals - with a few very common sounds filled in, 
+but you can change these assignments to whatever you desire.</p>
+<p>A shortcut can be used also to represent syllable onset, 
+coda and other clusters, or whatever. Simply make shortcuts you find useful when making the pattern. 
+A shortcut can be thought of as a pattern that can be inserted into another patterns - that's right how it works.
+A shortcut can be used in other shortcuts as well.
+You can use everything the same way in the shortcuts as in the main word pattern - slashes, brackets, 
+weighting, escaping. These will be discussed next.</p>
+<h3 id="Basic_syntax">Basic syntax</h3>
+<p>The content of the field named <i>pattern</i> defines how the word will be formed. Lower case (small) letters 
+represents these letters in the word, while capital letters are used as shortcuts 
+(what each of them stand for is defined in the rows above). To write the structure, there are these characters: </p>
+
+<ul class="blocks">
+<li>
+<p><b>/</b> &nbsp; Slashes divide the text into options, from which one is randomly chosen. </p>
+<p><i>example: &nbsp;</i> <code>tu/top/kan</code> generates either <i>tu</i>, <i>top</i>, or <i>kan</i></p> 
+<p>By default, all of them have the same chance of being chosen. This can be changed by giving 
+each option a <a href="#Assigning_weights">weight</a>. </p>
+</li>
+
+<li>
+<p><b>[ ]</b> &nbsp; What's inside square brackets is treated as a single unit. </p>
+<p><i>example: &nbsp;</i> <code>s[tu/top/kan]</code> generates either <i>stu</i>, <i>stop</i> or <i>skan</i></p>
+</li>
+
+<li>
+<p><b>( )</b> &nbsp; Round brackets work the same way as square brackets, the only difference is that 
+what's inside them can either appear in the word or not. Both variants are equally probable. </p>
+<p><i>example: &nbsp;</i> <code>s(tu/top/kan)</code> renders a word that always begins with <i>s</i> and in half of
+the cases continues with either of <i>tu</i>, <i>top</i>, or <i>kan</i> - so the possible results are: 
+<i>s, stu, stop, skan</i></p>
+</li> 
+</ul>
+
+<p>Brackets can be unlimitedly nested one into another.</p> 
+<p><i>example: &nbsp;</i> <code>at(a(z))</code> in half of the cases renders only <i>at</i>. 
+In the other half, the result can be equally probably <i>ata</i> or <i>ataz</i>. <i>atz</i> is impossible 
+because the block <code>(z)</code> is inside requires <code>a</code> to be rendered.</p>
+
+<h3 id="Assigning_weights">Assigning weights</h3>
+<p>Weight is a number that multiplies the chance of being chosen of the option it applies to. 
+Weight is written after an asterisk in the option it applies to.</p> 
+<p><i>example: &nbsp;</i> <code>a/b*3/c/d/kek*6</code> </p>
+<p>This generates <i>a</i>, <i>c</i>, or <i>d</i> each with the same probability. Compared to each of these, 
+the probability of generating <i>b</i> is three times higher and for <i>kek</i> six times higher 
+(that means, <i>kek</i> is twice as probable as <i>b</i>). 
+That's because <i>b</i> has weight 3 and <i>kek</i> has weight 6. Options without specified 
+weight have weight 1. The number used as weight must be an integer between 1 and 128.</p>
+
+<h3 id="Escaping_characters">Escaping characters</h3>
+<p>Double quotes (<i>"these"</i>) have a special function: characters enclosed by them are simply put into the word, 
+ignoring the meaning they would otherwise have for the generator. This way anything including capital letters, 
+slashes, brackets, etc. can be generated.</p>
+<p><i>example: &nbsp;</i> <code>heh"[mY/worD)]"</code> generates literally <i>heh[mY/worD)]</i>
+
+<h3 id="Pattern_filtering">Pattern filtering</h3>
+<p>When using a pattern to generate words, you may want to somehow restrict it so that some combinations 
+in certain places are forbidden. This is what filters can do. If a filter is set for some part of the pattern
+it is always checked whether what generated by that part of the pattern matches the filter. If it does 
+the word is filtered out - it will not appear in the output.
+</p>
+<p>Filters are defined by writing the <code>^</code> character right after the fragment of the pattern to be filtered
+followed by the content to filter out: <i>[pattern&nbsp;fragment]^filter</i> . 
+Multiple filters can be set for the same fragment: <i>[pattern&nbsp;fragment]^filter2^filter2^filter3</i> .
+<p><i>example: &nbsp;</i> <code>[VV]t[VV]^aa^ii^uu</code> &nbsp;&nbsp;&nbsp;&nbsp; (let V be a shortcut for [a/i/u])</p>
+<p> In this example, the first <code>[VV]</code> yield any of all the nine combinations - for any of the three letters
+for the first V there may appear any of them for the second V. Thus the possibilities are: 
+<i>aa, ai, au, ia, ii, iu, ua, ui, uu</i> . <br>
+For the second <i>[VV]</i>, there are three filters applied: these exclude cases when the <i>[VV]</i> yields 
+<i>aa, ii, </i>or<i>uu</i>, i.e. when the letters happen to be the same. Thus, just 
+<i>ai, au, ia, iu, ua, ui</i> are accepted results.</p>
+
+<h3 id="Generating_words">Generating words</h3>
+<p>When everything is set up, click the <i>Generate</i> button to generate the words. There are several adjustments: </p>
+<ul>
+<li>the number of words to be generated</li>
+<li>new line each - write each word on a separate line</li>
+<li>filter duplicates - let each word occur at most once in the output</li>
+</ul>
+<p>After the words are generated, some statistics are shown below them. These tell how many words were printed
+to the output, how many words were filtered out, how much time it took, and how many possible ways the pattern
+can render. Note that the number of actually different words possible to get with the pattern may be actually
+lower because of there being more ways to get the same word.</p>
+
+<h3 id="Saving_and_loading_settings">Saving and loading settings</h3>
+<p>By clicking the <i>Save...</i> button you get a file with the current settings of Awkwords. Save this file 
+to your disk. Next time when you need these settings again, click on <i>Load > </i>, select the file you want to load 
+and click <i>Load settings</i>.</p>
+
+<h2 id="About">About</h2>
+<h3 id="Credits_and_license">Credits and license</h3>
+<p>Awkwords 1.1 &nbsp;&nbsp; &copy; Petr Mejzlík &nbsp;&nbsp; | &nbsp;&nbsp;
+&#101;-&#109;&#097;&#105;&#108;: 
+<a href="&#109;&#097;&#105;&#108;&#116;&#111;&#058;&#112;&#101;&#116;&#114;&#109;&#101;&#106;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#112;&#101;&#116;&#114;&#109;&#101;&#106;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>
+&nbsp;&nbsp; ICQ: 331953665
+</p>
+<p class="note"><b>License:<br></b> 
+Everyone is allowed to freely use and distribute this software.
+It can be incorporated into other software without any limitations.
+Modifying the software and distributing a modified version is allowed as long as the modified version is 
+clearly marked distinct from the original one.
+This license is <a href="http://www.gnu.org/licenses/gpl-3.0.txt">GNU LGPL</a> compatible.
+</p>
+<h3 id="Changelog">Changelog</h3>
+<p>Awkwords versions:</p>
+<ul>
+<li>1.0 - the first official release; changes from the long-used previous "unnumbered" version: 
+    <ul>
+    <li>fixed escaping in the fields so that there should be no problem with quotes anywhere</li>
+    <li>minor fix: with 'new line each', each line contains just the word, not followed by a space</li>
+    <li>extended the help page</li>
+    <li>improved the interface</li>
+    <li>added filter duplicates option</li>
+    </ul>
+</li>
+<li>1.1
+    <ul>
+    <li>empty fragments made possible: <i>[a/]</i> will generate either <i>a</i> or nothing</li>
+    <li>quotes escape any special characters in between: <i>"esCap*ed/t]eXt"</i></li>
+    <li>spaces are ignored (if not between quotes)</li>
+    <li>interface fixes: HTML entities don't cause problems; 'Select all' works in IE; 
+    length limit removed from shortcuts; remembering name of loaded file</li>
+    <li>added weighting</li>
+    <li>added pattern filtering</li>
+    </ul>
+</li>
+</ul>
+<h2 id="Download">Download</h2>
+<p>The complete source code of Awkwords is available here: &nbsp;&nbsp;
+<b><a href="http://bprhad.wz.cz/awkwords/awkwords-download/awkwords-1.1.zip">awkwords-1.1.zip</a></b></p>
+<p>Older versions: </p>
+<ul>
+<li><a href="http://bprhad.wz.cz/awkwords/awkwords-download/awkwords-1.0.zip">awkwords-1.0.zip</a></li>
+</ul>
+</body>
+</html>
