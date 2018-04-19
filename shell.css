@@ -13,10 +13,10 @@ width: 100%;
 text-align: center;
 line-height: 35px;
 vertical-align: middle;
+cursor: default;
 }
 h1.h_left { 
 float: left;
-display: inline;
 margin: 5px; 
 font-size: 120%; 
 line-height: 25px;
@@ -34,11 +34,14 @@ padding: 0 10px 0 10px;
 vertical-align: middle;
 color: blue; font-weight: bold; text-decoration: none;
 }
-.h_right a:hover { background-color: #5ab8d0; }
+.h_right a:hover { 
+background-color: #5FC2DC; 
+color: white;
+}
 
 #help {
 padding-left: 34px;
-background-image: url('iicon.gif');
+background-image: url('help.gif');
 background-repeat: no-repeat;
 background-position: left center;
 }
@@ -50,16 +53,37 @@ margin-right: 20px;
 }
 
 .warning {
-padding: 10px 10px 10px 34px;
+padding: 10px 10px 10px 37px;
 background-image: url('warning.png');
 background-repeat: no-repeat;
-background-position: left center;
+background-position: 3px 5px;
 margin: 10px;
 background-color: #ECEEF0;
 border: dashed gray 1px;
 }
+.error {
+padding: 10px 10px 10px 37px;
+background-image: url('error.png');
+background-repeat: no-repeat;
+background-position: 3px 5px;
+margin: 10px;
+background-color: #ECEEF0;
+border: dashed gray 1px;
+}
+.unmwarnlist {
+list-style-type: none;
+}
+.unmwarnlist li {
+margin-top: 10px; margin-bottom: 10px;
+font-family: monospace;
+font-size: 125%;
+}
+.unmwarnlist li b {
+border: dotted gray 1px;
+background-color: #5FC2DC;
+}
 
-#wordsec { padding: 10px; border-top: solid gray 5px; }
+#outputsec { padding: 10px; border-top: solid gray 5px; }
 #selectbutton { float: right; margin: 20px; } 
 #stats { 
 clear: both; 
@@ -68,9 +92,14 @@ margin-top: 10px;
 padding-top: 5px;
 }
 
-#scsec { margin: 10px; }
+#spsec { margin: 10px; }
+#sp_label { 
+text-align: left; 
+padding-left: 0.5em;
+cursor: default; 
+}
 #psec { margin: 10px; }
-#gensec { margin-left: 5em; float: left; /*width: 70%; text-align: right; */}
+#gensec { margin-left: 5em; float: left; }
 #slsec { float: right; padding-right: 5px; }
 #loadsec { 
 display: none; 
@@ -78,7 +107,11 @@ margin: 10px;
 text-align: right;
 background-color: #ECEEF0;
 }
-div.sc_row input { width: 90%; }
+
+table.sptab td.spn select { width: 3.5em; height: 100%; }
+table.sptab td.spc input { width: 100%; height: 100%; }
+table.sptab td { padding: 0px; }
+
 #psec input { width: 88%; }
 input.checkbox { vertical-align: middle; margin-left: 20px; }
 label.checkbox { vertical-align: middle; }

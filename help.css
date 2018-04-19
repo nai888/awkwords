@@ -6,24 +6,122 @@ background-color: white;
 font-family: sans-serif, serif;
 }
 
-h1 { 
+/*h1 { 
 margin: 0px; 
 padding: 5px;
 font-size: 140%; 
 color: black; 
-background-color: #5ab8d0;
+background-color: #5FC2DC; 
+}*/
+
+.heading { 
+background-color: #ECEEF0;
+margin: 0px;
+padding: 0px; 
+width: 100%;
+text-align: center;
+line-height: 35px;
+vertical-align: middle;
+background-color: #5FC2DC; 
+}
+h1.h_left { 
+float: left;
+margin: 5px; 
+font-size: 120%; 
+line-height: 25px;
+color: black; 
+}
+.h_right {
+float: right; 
+display: block; 
+}
+#closebutton {
+margin: 0px;
+display: block; 
+float: left;
+height: 35px;
+padding: 0 10px 0 26px;
+border: 0px;
+vertical-align: middle;
+color: blue; font-weight: bold; text-decoration: none;
+background-color: white;
+background-image: url('close.gif');
+background-repeat: no-repeat;
+background-position: 5px center;
+line-height: 35px;
+cursor: pointer;
+}
+#closebutton:hover { 
+background-color: #DDDFE4; 
+}
+
+/* Inline headings in sectionhX do not have margin; instead, 
+ * sectionhx div has the margin the heading would have 
+ * normally displayed as a block. */
+.sectionh2 h2, .sectionh3 h3 {
+margin: 0px;
+display: inline;
+padding-right: 30px;
+cursor: default;
 }
 
 h2 {
 font-size: 140%;
 margin-left: 10px; margin-right: 10px;
 border-bottom: solid 2px gray;
+margin-top: 2em;
+}
+.sectionh2 { 
+margin-left: 10px; margin-right: 10px;
+border-bottom: solid 2px gray;
+margin-top: 2em;
 }
 
 h3 {
 font-size: 120%;
 margin-left: 20px; margin-right: 20px;
+margin-top: 2em;
 }
+.sectionh3 {
+margin-left: 20px; margin-right: 20px; 
+margin-top: 2em;
+}
+
+.sectionh2 h2 a, .sectionh3 h3 a {
+text-decoration: none;
+color: black;
+cursor: default;
+}
+.sectionh2:hover .anchor, .sectionh3:hover .anchor {
+visibility: visible;
+}
+.anchor {
+color: gray; text-decoration: none; 
+font-size: 120%; font-weight: bold;
+visibility: hidden;
+}
+.anchor:hover {
+color: black;
+}
+
+a.top {
+float: right;
+margin: 5px;
+text-decoration: none;
+color: gray; 
+font-size: 10px;
+font-weight: normal;
+background-image: url('top-link-shaded.gif');
+background-repeat: no-repeat;
+background-position: right center;
+padding-right: 20px;
+}
+a.top:hover { 
+color: black; 
+background-image: url('top-link.gif');
+}
+a.top .title { /*visibility: hidden;*/ }
+a.top:hover .title { visibility: visible; }
 
 #toc {
 padding: 10px;
@@ -32,19 +130,19 @@ float: right;
 background-color: #ECEEF0;
 width: 250px;
 }
-
-#toc .heading {
+#tocheading {
 font-weight: bold;
 }
-
 #toc ul {
 padding-left: 0px;
 margin-left: 0px;
 margin-right: 0px;
 list-style-type: square;
 }
+#introsec { 
+margin-right: 300px; 
+}
 
-#introsec { margin-right: 300px; }
 p, ul, ul li {
 margin-left: 20px; 
 margin-right: 20px;
@@ -72,6 +170,13 @@ padding: 3px;
 border: dashed 1px gray;
 padding: 10px;
 }
+
+table {
+margin-left: 20px;
+border: dashed 1px gray;
+}
+th { background-color: #ECEEF0; }
+td { padding-left: 10px; padding-right: 10px; }
 
 #counter {
 display: block;

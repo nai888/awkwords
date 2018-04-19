@@ -1,27 +1,25 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Awkwords help</title>
+<title>Awkwords Help</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta http-equiv="content-language" content="en">
-<meta http-equiv="expires" content="Sun 26 Jun 2005 12:00:00 GMT">
+<meta name="description" content="Manual for the Awkwords word generator. It describes Awkwords pattern syntax and other features of the generator. It also contains information about its license, changelog, and links to download the source.">
 <link rel="stylesheet" href="help.css" type="text/css" media="all">
 <link rel="shortcut icon" href="help-favicon.ico" type="image/ico">
 </head>
 <body>
-<!-- web stats [nv.cz]
-<div id="counter">
-<script src="http://c1.navrcholu.cz/code?site=85435;t=lb14"
-type="text/javascript"></script><noscript><div><a
-href="http://navrcholu.cz/"><img
-src="http://c1.navrcholu.cz/hit?site=85435;t=lb14;ref=;jss=0"
-width="14" height="14" alt="NAVRCHOLU.cz"
-style="border:none" /></a></div></noscript>
+<div class="heading">
+<h1 class="h_left">Awkwords Help</h1>
+<div class="h_right">
+<button id="closebutton" title="Close this page" onclick="window.close()">Close</button>
 </div>
--->
-<a href="#"><h1>Awkwords help</h1></a>
+for version 1.2 <!-- [awkwords-version] -->
+| last modified: 2010-04-05 <!-- [lmdate] -->
+<div class="clear">&nbsp;</div>
+</div>
 <div id="toc">
-<div class="heading">Contents: </div>
+<div id="tocheading">Contents: </div>
 <ul>
 <li><a href="#Using_Awkwords">Using Awkwords</a>
   <ul>
@@ -40,36 +38,68 @@ style="border:none" /></a></div></noscript>
   <li><a href="#Changelog">Changelog</a></li>
   </ul>
 </li>
-<li><a href="#Download">Download</a></li>
+<li><a href="#Download">Download</a>
+  <ul>
+  <li><a href="#System_requirements">System requirements</a></li>
+  </ul>
+</li>
 </ul>
 </div>
-<h2 id="Using_Awkwords">Using Awkwords</h2>
 <div id="introsec">
 <h3 id="Introduction">Introduction: what Awkwords is</h3>
-<p>Awkwords is a simple online application that randomly generates words based on a given pattern. 
-You can use it to make words for a constructed language, to get an original nickname, just for fun or whatever.</p>
-<p class="note">note: Awkwords the word generator has nothing to do with <a href="http://awk.info/?doc/tools/awkwords.html">Awkwords the documentation markup language</a> nor with the awk text processing language as such. 
+<p>Awkwords is a simple online application that randomly generates words from a given pattern. 
+You can use it to make words for a constructed language, to get an original nickname, 
+generate your own style hard-to-guess yet rememberable passwords, just for fun or whatever.</p>
+<p class="note">note: Awkwords the word generator has nothing to do with <a href="http://awk.info/?doc/tools/awkwords.html">AWKwords the documentation markup language</a> nor with the awk text processing language as such. 
 The matching names are purely coincidental.</p>
+<p>If you reached this document from outside the generator's interface, 
+you may wonder where to find it. The installation of Awkwords 
+run by its <a href="#Credits_and_license">author</a> is here: 
+<b><a href="http://awkwords.wsr3.net">http://awkwords.wsr3.net</a></b></p>
 <div class="clear">&nbsp;</div>
 </div>
-<h3 id="Concept">Concept</h3>
-<p>The most notable parts of the generator's interface are the parts labeled <i>shortcuts</i> and <i>pattern</i>.
-Shortcuts allow you to assign each capital letter something to generate. Everywhere you use 
-one of them in the word pattern the content assigned to it will be used in that place. 
-It's useful to put the language's sounds here.</p>
-<p>There are several predefined groups of sounds - V for <u>v</u>owels, C for <u>c</u>onsonants, T for s<u>t</u>ops, 
-F for <u>f</u>ricatives, and N for <u>n</u>asals - with a few very common sounds filled in, 
-but you can change these assignments to whatever you desire.</p>
-<p>A shortcut can be used also to represent syllable onset, 
-coda and other clusters, or whatever. Simply make shortcuts you find useful when making the pattern. 
-A shortcut can be thought of as a pattern that can be inserted into another patterns - that's right how it works.
-A shortcut can be used in other shortcuts as well.
-You can use everything the same way in the shortcuts as in the main word pattern - slashes, brackets, 
+
+
+<div class="sectionh2">
+<a class="top" href="#"><span class="title">Scroll to top</span></a>
+<h2 id="Using_Awkwords"><a href="#Using_Awkwords">Using Awkwords</a></h2>
+<a href="#Concept" class="anchor" title="Link to this section">#</a>
+</div>
+
+<div class="sectionh3">
+<h3 id="Concept"><a href="#Concept">Concept</a></h3>
+<a href="#Concept" class="anchor" title="Link to this section">#</a>
+</div>
+<p>The most notable parts of the generator's interface are the parts labeled <i>subpatterns</i> and <i>pattern</i>.
+The pattern (or "main pattern" - I'll occassionaly use this term to clearly distinguish it from subpatterns) 
+is the essential thing - it defines how the word will be constructed. It is written using a specific 
+<a href="#Basic_syntax">syntax</a>.</p>
+<p>Besides the main pattern, there are up to 26 subpatterns available, 
+each of them can be named with one capital letter. A subpattern is essentially 
+a pattern that can be inserted in any place in the main pattern or other subpatterns. 
+The content assigned to the subpattern will be used in every place you put its letter. 
+</p>
+<p>A usual use for subpatterns when making a pattern to generate words of a constructed language 
+is for different sounds (phonemes) of the language. There are several predefined 
+groups of sounds - V for <u>v</u>owels, C for <u>c</u>onsonants, 
+and N for <u>n</u>asals - with a few very common sounds filled in, 
+but you can change these assignments to whatever you desire and use 
+any letter for any group of sounds or other fragment that is needed 
+repeatedly in the word. A subpattern can be used also to represent syllable onset, 
+coda and other clusters. Simply make subpatterns you find useful when making the main pattern.</p>
+
+<p>You can use everything the same way in the subpatterns as in the main pattern - slashes, brackets, 
 weighting, escaping. These will be discussed next.</p>
-<h3 id="Basic_syntax">Basic syntax</h3>
+
+<div class="sectionh3">
+<a class="top" href="#"><span class="title">Scroll to top</span></a>
+<h3 id="Basic_syntax"><a href="#Basic_syntax">Basic syntax</a></h3>
+<a href="#Basic_syntax" class="anchor" title="Link to this section">#</a>
+</div>
+
 <p>The content of the field named <i>pattern</i> defines how the word will be formed. Lower case (small) letters 
-represents these letters in the word, while capital letters are used as shortcuts 
-(what each of them stand for is defined in the rows above). To write the structure, there are these characters: </p>
+represent these letters in the word, while capital letters refer to subpatterns. 
+To write the structure, there are these characters: </p>
 
 <ul class="blocks">
 <li>
@@ -98,7 +128,11 @@ the cases continues with either of <i>tu</i>, <i>top</i>, or <i>kan</i> - so the
 In the other half, the result can be equally probably <i>ata</i> or <i>ataz</i>. <i>atz</i> is impossible 
 because the block <code>(z)</code> is inside requires <code>a</code> to be rendered.</p>
 
-<h3 id="Assigning_weights">Assigning weights</h3>
+<div class="sectionh3">
+<a class="top" href="#"><span class="title">Scroll to top</span></a>
+<h3 id="Assigning_weights"><a href="#Assigning_weights">Assigning weights</a></h3>
+<a href="#Assigning_weights" class="anchor" title="Link to this section">#</a>
+</div>
 <p>Weight is a number that multiplies the chance of being chosen of the option it applies to. 
 Weight is written after an asterisk in the option it applies to.</p> 
 <p><i>example: &nbsp;</i> <code>a/b*3/c/d/kek*6</code> </p>
@@ -108,13 +142,21 @@ the probability of generating <i>b</i> is three times higher and for <i>kek</i> 
 That's because <i>b</i> has weight 3 and <i>kek</i> has weight 6. Options without specified 
 weight have weight 1. The number used as weight must be an integer between 1 and 128.</p>
 
-<h3 id="Escaping_characters">Escaping characters</h3>
-<p>Double quotes (<i>"these"</i>) have a special function: characters enclosed by them are simply put into the word, 
+<div class="sectionh3">
+<a class="top" href="#"><span class="title">Scroll to top</span></a>
+<h3 id="Escaping_characters"><a href="#Escaping_characters">Escaping characters</a></h3>
+<a href="#Escaping_characters" class="anchor" title="Link to this section">#</a>
+</div>
+<p>Double quotes (<i>""</i>) have a special function: characters enclosed by them are simply put into the word, 
 ignoring the meaning they would otherwise have for the generator. This way anything including capital letters, 
 slashes, brackets, etc. can be generated.</p>
-<p><i>example: &nbsp;</i> <code>heh"[mY/worD)]"</code> generates literally <i>heh[mY/worD)]</i>
+<p><i>example: &nbsp;</i> <code>heh"[mY/worD)]"</code> generates literally <i>heh[mY/worD)]</i></p>
 
-<h3 id="Pattern_filtering">Pattern filtering</h3>
+<div class="sectionh3">
+<a class="top" href="#"><span class="title">Scroll to top</span></a>
+<h3 id="Pattern_filtering"><a href="#Pattern_filtering">Pattern filtering</a></h3>
+<a href="#Pattern_filtering" class="anchor" title="Link to this section">#</a>
+</div>
 <p>When using a pattern to generate words, you may want to somehow restrict it so that some combinations 
 in certain places are forbidden. This is what filters can do. If a filter is set for some part of the pattern
 it is always checked whether what generated by that part of the pattern matches the filter. If it does 
@@ -123,15 +165,23 @@ the word is filtered out - it will not appear in the output.
 <p>Filters are defined by writing the <code>^</code> character right after the fragment of the pattern to be filtered
 followed by the content to filter out: <i>[pattern&nbsp;fragment]^filter</i> . 
 Multiple filters can be set for the same fragment: <i>[pattern&nbsp;fragment]^filter2^filter2^filter3</i> .
-<p><i>example: &nbsp;</i> <code>[VV]t[VV]^aa^ii^uu</code> &nbsp;&nbsp;&nbsp;&nbsp; (let V be a shortcut for [a/i/u])</p>
-<p> In this example, the first <code>[VV]</code> yield any of all the nine combinations - for any of the three letters
+<p><i>example: &nbsp;</i> <code>[VV]t[VV]^aa^ii^uu</code> &nbsp;&nbsp;&nbsp;&nbsp; 
+(let V be subpattern <i>[a/i/u]</i>)</p>
+<p> In this example, the first <code>[VV]</code> yields any of all the nine combinations - for any of the three letters
 for the first V there may appear any of them for the second V. Thus the possibilities are: 
 <i>aa, ai, au, ia, ii, iu, ua, ui, uu</i> . <br>
 For the second <i>[VV]</i>, there are three filters applied: these exclude cases when the <i>[VV]</i> yields 
-<i>aa, ii, </i>or<i>uu</i>, i.e. when the letters happen to be the same. Thus, just 
+<i>aa, ii, </i>or <i>uu</i>, i.e. when the letters happen to be the same. Thus, just 
 <i>ai, au, ia, iu, ua, ui</i> are accepted results.</p>
+<p>Double quotes can be used inside filters to escape characters. However other syntactic elements 
+(brackets, slashes, weights) and subpattern letters cannot -- any of them ends the filter. 
+This is because each filter is a fixed string, not a randomly generated pattern.</p>
 
-<h3 id="Generating_words">Generating words</h3>
+<div class="sectionh3">
+<a class="top" href="#"><span class="title">Scroll to top</span></a>
+<h3 id="Generating_words"><a href="#Generating_words">Generating words</a></h3>
+<a href="#Generating_words" class="anchor" title="Link to this section">#</a>
+</div>
 <p>When everything is set up, click the <i>Generate</i> button to generate the words. There are several adjustments: </p>
 <ul>
 <li>the number of words to be generated</li>
@@ -141,16 +191,30 @@ For the second <i>[VV]</i>, there are three filters applied: these exclude cases
 <p>After the words are generated, some statistics are shown below them. These tell how many words were printed
 to the output, how many words were filtered out, how much time it took, and how many possible ways the pattern
 can render. Note that the number of actually different words possible to get with the pattern may be actually
-lower because of there being more ways to get the same word.</p>
+lower because of there being more ways to get the same word; also limits imposed by pattern filters are not 
+reflected in this statistic.</p>
 
-<h3 id="Saving_and_loading_settings">Saving and loading settings</h3>
+<div class="sectionh3">
+<a class="top" href="#"><span class="title">Scroll to top</span></a>
+<h3 id="Saving_and_loading_settings"><a href="#Saving_and_loading_settings">Saving and loading settings</a></h3>
+<a href="#Saving_and_loading_settings" class="anchor" title="Link to this section">#</a>
+</div>
 <p>By clicking the <i>Save...</i> button you get a file with the current settings of Awkwords. Save this file 
-to your disk. Next time when you need these settings again, click on <i>Load > </i>, select the file you want to load 
-and click <i>Load settings</i>.</p>
+to your disk. Next time when you need these settings again, click on <i>Open > </i>, select the file and confirm 
+by clicking <i>Open</i>.</p>
 
-<h2 id="About">About</h2>
-<h3 id="Credits_and_license">Credits and license</h3>
-<p>Awkwords 1.1 &nbsp;&nbsp; &copy; Petr Mejzlík &nbsp;&nbsp; | &nbsp;&nbsp;
+<div class="sectionh2">
+<a class="top" href="#"><span class="title">Scroll to top</span></a>
+<h2 id="About"><a href="#About">About</a></h2>
+<a href="#About" class="anchor" title="Link to this section">#</a>
+</div>
+
+<div class="sectionh3">
+<h3 id="Credits_and_license"><a href="#Credits_and_license">Credits and license</a></h3>
+<a href="#Credits_and_license" class="anchor" title="Link to this section">#</a>
+</div>
+<p>Awkwords 1.2 <!-- [awkwords-version] -->
+&nbsp;&nbsp; &copy; Petr Mejzlík &nbsp;&nbsp; | &nbsp;&nbsp;
 &#101;-&#109;&#097;&#105;&#108;: 
 <a href="&#109;&#097;&#105;&#108;&#116;&#111;&#058;&#112;&#101;&#116;&#114;&#109;&#101;&#106;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#112;&#101;&#116;&#114;&#109;&#101;&#106;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>
 &nbsp;&nbsp; ICQ: 331953665
@@ -162,8 +226,17 @@ Modifying the software and distributing a modified version is allowed as long as
 clearly marked distinct from the original one.
 This license is <a href="http://www.gnu.org/licenses/gpl-3.0.txt">GNU LGPL</a> compatible.
 </p>
-<h3 id="Changelog">Changelog</h3>
-<p>Awkwords versions:</p>
+<p>Some graphics that are work of other authors are used in Awkwords. Namely:</p>
+<table><tr><th>Files</th><th>Author</th><th>License</th></tr>
+<tr><td>error.png, warning.png</td><td>Ray Cheung</td><td>Creative Commons Attribution 3.0 License</td></tr>
+</table>
+
+<div class="sectionh3">
+<a class="top" href="#"><span class="title">Scroll to top</span></a>
+<h3 id="Changelog"><a href="#Changelog">Changelog</a></h3>
+<a href="#Changelog" class="anchor" title="Link to this section">#</a>
+</div>
+<p>Summary of notable changes in Awkwords versions:</p>
 <ul>
 <li>1.0 - the first official release; changes from the long-used previous "unnumbered" version: 
     <ul>
@@ -176,22 +249,57 @@ This license is <a href="http://www.gnu.org/licenses/gpl-3.0.txt">GNU LGPL</a> c
 </li>
 <li>1.1
     <ul>
-    <li>empty fragments made possible: <i>[a/]</i> will generate either <i>a</i> or nothing</li>
-    <li>quotes escape any special characters in between: <i>"esCap*ed/t]eXt"</i></li>
+    <li>empty fragments made possible: <i>[a/]</i> will generate either <i>a</i> or nothing
+    <i><br>(correction: this didn't actually work in 1.1 -- empty options were recognized but there was a bug 
+    so that an empty option being the last was ignored: [/a] would work this way but [a/] would generate *always* "a" 
+    -- this was fixed in 1.2; also, they are empty *options*, not fragments)</i></li>
+    <li>quotes <a href="#Escaping_characters">escape</a> any special characters in between: <i>"esCap*ed/t]eXt"</i></li>
     <li>spaces are ignored (if not between quotes)</li>
     <li>interface fixes: HTML entities don't cause problems; 'Select all' works in IE; 
     length limit removed from shortcuts; remembering name of loaded file</li>
-    <li>added weighting</li>
-    <li>added pattern filtering</li>
+    <li>added <a href="#Assigning_weights">weighting</a></li>
+    <li>added <a href="#Pattern_filtering">pattern filtering</a></li>
+    </ul>
+</li>
+<li>1.2
+    <ul>
+    <li>some code refactoring</li>
+    <li>default file extension changed to .awkw to not confuse Awkwords files with AWK scripts</li>
+    <li>the shell and thus the files changed encoding from cp1250 to utf-8; old files are automatically 
+    converted; this fixes problems with some characters that earlier versions had</li>
+    <li>various adjustments and fixes in the interface (aka the "shell"); 
+    changed from XHTML to HTML 4.01 Transitional</li>
+    <li>note: what was called "shortcuts" is now called "subpatterns" (for clarity; essentially they are the same
+    as the pattern, only named with letters and included in the pattern)</li>
+    <li>added input validation: checking for dependency cycles, brackets not matching, multiple subpatterns 
+    assigned to one letter, capital A-Z without a subpattern assigned, proper handling of file loading errors</li>
+    <li>fixed 2 bugs in choose() - last fragment empty; skipping option weights in nested fragments</li>
     </ul>
 </li>
 </ul>
-<h2 id="Download">Download</h2>
+
+<div class="sectionh2">
+<a class="top" href="#"><span class="title">Scroll to top</span></a>
+<h2 id="Download"><a href="#Download">Download</a></h2>
+<a href="#Download" class="anchor" title="Link to this section">#</a>
+</div>
 <p>The complete source code of Awkwords is available here: &nbsp;&nbsp;
-<b><a href="http://bprhad.wz.cz/awkwords/awkwords-download/awkwords-1.1.zip">awkwords-1.1.zip</a></b></p>
+<b><a href="http://awkwords.wsr3.net/download/awkwords-1.2.zip">awkwords-1.2.zip</a></b></p>
 <p>Older versions: </p>
 <ul>
-<li><a href="http://bprhad.wz.cz/awkwords/awkwords-download/awkwords-1.0.zip">awkwords-1.0.zip</a></li>
+<li><a href="http://awkwords.wsr3.net/download/awkwords-1.0.zip">awkwords-1.0.zip</a></li>
+<li><a href="http://awkwords.wsr3.net/download/awkwords-1.1.zip">awkwords-1.1.zip</a></li>
 </ul>
+<div class="sectionh3">
+<h3 id="System_requirements"><a href="#System_requirements">System requirements</a></h3>
+<a href="#System_requirements" class="anchor" title="Link to this section">#</a>
+</div>
+<p>Awkwords is written in PHP, it needs a server with <a href="http://php.net/">PHP hypertext preprocessor</a> 
+installed. To work correctly, Awkwords also requires the magic_quotes_gpc PHP directive 
+to be off or .htaccess must be allowed (the .htaccess file turns magic_quotes_gpc off).
+With magic_quotes_gpc on and .htaccess not allowed, patterns containing quotes or apostrophes would get corrupted.</p>
+<p><a href="http://cz2.php.net/manual/en/book.iconv.php">iconv</a> module is needed to automatically convert 
+old Awkwords files (which were encoded in cp1250) to utf-8 (which is used in version 1.2 and later). 
+Iconv is included by default on POSIX-compliant systems (Unix, Linux, etc.) but may not be installed on Windows.</p>
 </body>
 </html>
