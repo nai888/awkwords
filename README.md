@@ -1,6 +1,6 @@
 # Awkwords
 
-Awkwords is a simple online application that randomly generates words from a given pattern. Awkwords was created by Petr Mejzlík.
+Awkwords is a simple online application that randomly generates words from a given pattern. Awkwords was created by [Petr Mejzlík](https://github.com/petmir).
 
 ## Newer Version: [LanguaGen](https://github.com/nai888/langua)
 
