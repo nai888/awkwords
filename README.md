@@ -10,11 +10,11 @@ Do you love Awkwords? Consider checking out [Langua](https://github.com/nai888/l
 
 If you know of any websites where Awkwords is hosted that aren't listed below, please feel free to open a pull request to add to the list or open an issue to alert the repo owner.
 
-### [v1.2](https://github.com/nai888/awkwords/releases/tag/v1.1)
+### [v1.2](https://github.com/nai888/awkwords/releases/tag/v1.2)
 
 - http://akana.conlang.org/tools/awkwords/
 
-### [v1.1](https://github.com/nai888/awkwords/releases/tag/v1.2)
+### [v1.1](https://github.com/nai888/awkwords/releases/tag/v1.1)
 
 - http://bprhad.wz.cz/awkwords/
 
