@@ -1,11 +1,16 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const logoUrl = `${import.meta.env.BASE_URL}favicon.svg`
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <img :src="logoUrl" alt="" width="28" height="28" />
+        <h1>Awkwords</h1>
+      </div>
+    </header>
+  </div>
 </template>
 
 <style scoped></style>
