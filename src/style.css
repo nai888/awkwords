@@ -133,3 +133,17 @@ code {
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+footer {
+  margin: 1rem 0;
+  padding: 1rem 0;
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.footer-text a {
+  color: var(--text);
+}

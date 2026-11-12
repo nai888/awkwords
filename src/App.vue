@@ -24,6 +24,19 @@ const { label: themeLabel, cycle: cycleTheme } = useTheme()
         </nav>
       </div>
     </header>
+    <main class="layout">
+      <div class="content"></div>
+    </main>
+    <footer class="footer">
+      <div class="content">
+        <p class="footer-text">
+          Awkwords by Petr Mejzlík. Ported to Vue by Ian Cook.
+          <a href="https://github.com/nai888/awkwords" target="_blank" rel="noreferrer noopener"
+            >View on GitHub</a
+          >.
+        </p>
+      </div>
+    </footer>
   </div>
 </template>
 
