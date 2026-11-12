@@ -1,18 +1,20 @@
 :root {
+  --transition: 0.12s;
   --font: 'Noto Sans', system-ui, -apple-system, sans-serif;
   --mono: 'Noto Sans Mono', ui-monospace, monospace;
   --bg: #fafafa;
   --text: #121212;
+  --muted: #5a5a5a;
   --code: #eaeaea;
   --border: #dcdcdc;
   --accent: #4f46e5;
-  --transition: 0.12s;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
     --bg: #121212;
     --text: #eaeaea;
+    --muted: #aaaaaa;
     --code: #232323;
     --border: #343434;
     --accent: #8b85ff;
@@ -84,8 +86,12 @@ code {
   position: sticky;
   top: 0;
   z-index: 5;
-  backdrop-filter: blur(8px);
   border-radius: 0 0 0.5rem 0.5rem;
+  backdrop-filter: blur(8px);
+}
+
+.topbar,
+.toast {
   padding: 0.75rem 1rem;
   background: color-mix(in srgb, color-mix(in srgb, var(--accent) 90%, var(--bg)) 10%, transparent);
   transition: background-color var(--transition);
@@ -132,6 +138,24 @@ code {
 .btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.status {
+  min-height: 6rem;
+  margin: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toast {
+  border-radius: 0.5rem;
+}
+
+.status p {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 footer {

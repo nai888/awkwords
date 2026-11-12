@@ -1,8 +1,24 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { useTheme } from './composables/useTheme'
 
 const logoUrl = `${import.meta.env.BASE_URL}favicon.svg`
 const { label: themeLabel, cycle: cycleTheme } = useTheme()
+
+const status = ref('')
+
+// toast message
+let statusTimer: ReturnType<typeof setTimeout> | undefined
+function notify(message: string): void {
+  status.value = message
+  clearTimeout(statusTimer)
+  statusTimer = setTimeout(() => (status.value = ''), 3000)
+}
+
+// temporary notification that a feature isn't yet implemented
+function notImplemented(): void {
+  notify('Sorry, this feature is not implemented yet.')
+}
 </script>
 
 <template>
@@ -14,18 +30,24 @@ const { label: themeLabel, cycle: cycleTheme } = useTheme()
           <h1>Awkwords</h1>
         </div>
         <nav class="toolbar" aria-label="Tools">
-          <button type="button" class="btn subtle">Open</button>
-          <button type="button" class="btn subtle">Save</button>
-          <button type="button" class="btn subtle">Share</button>
+          <button type="button" class="btn subtle" @click="notImplemented">Open</button>
+          <button type="button" class="btn subtle" @click="notImplemented">Save</button>
+          <button type="button" class="btn subtle" @click="notImplemented">Share</button>
           <button type="button" class="btn subtle" @click="cycleTheme">
             {{ themeLabel }} Theme
           </button>
-          <button type="button" class="btn subtle">Help</button>
+          <button type="button" class="btn subtle" @click="notImplemented">Help</button>
         </nav>
       </div>
     </header>
     <main class="layout">
-      <div class="content"></div>
+      <div class="content">
+        <section class="status" role="alert" aria-label="Notification">
+          <div class="toast" v-if="status">
+            <p>{{ status }}</p>
+          </div>
+        </section>
+      </div>
     </main>
     <footer class="footer">
       <div class="content">
