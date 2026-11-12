@@ -77,6 +77,13 @@ code {
 
 /* ----- Layout ----- */
 
+header:not(main header),
+main,
+footer,
+.toast {
+  padding: 0.75rem 1rem;
+}
+
 .content {
   max-width: 1180px;
   margin: 0 auto;
@@ -92,7 +99,6 @@ code {
 
 .topbar,
 .toast {
-  padding: 0.75rem 1rem;
   background: color-mix(in srgb, color-mix(in srgb, var(--accent) 90%, var(--bg)) 10%, transparent);
   transition: background-color var(--transition);
 }
@@ -160,9 +166,17 @@ code {
   color: var(--muted);
 }
 
+.btn.wide {
+  padding: 0.5rem 3rem;
+}
+
 .main-section {
   margin: 1rem 0;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
+}
+
+.main-section header {
+  margin: 0 0 1rem;
 }
 
 .section-head {
@@ -249,7 +263,6 @@ code {
 
 footer {
   margin: 1rem 0;
-  padding: 1rem 0;
 }
 
 .footer-text {

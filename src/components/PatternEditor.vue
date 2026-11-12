@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const canAddRow = true
+</script>
 
 <template>
   <section class="main-section" aria-labelledby="subpatterns-heading">
@@ -48,5 +50,35 @@
         </button>
       </li>
     </ul>
+    <button type="button" class="btn subtle wide" :disabled="!canAddRow">+ Add Subpattern</button>
+  </section>
+  <section class="main-section" aria-labelledby="pattern-heading">
+    <header class="section-head row-head">
+      <h2 id="pattern-heading">Pattern</h2>
+      <p class="hint">
+        Use <code>/</code> to choose, <code>[ ]</code> to group, <code>( )</code> to make optional,
+        <code>*x</code> for weights, <code>^y</code> to filter, and <code>"&hellip;"</code> to
+        escape.
+      </p>
+    </header>
+    <div class="row">
+      <input
+        class="input mono value"
+        type="text"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        placeholder="CV(N)"
+      />
+      <button
+        type="button"
+        class="btn icon"
+        title="Edit option weights"
+        aria-label="`Edit weights for subpattern`"
+        disabled
+      >
+        &#x2699;
+      </button>
+    </div>
   </section>
 </template>
