@@ -14,6 +14,7 @@
   --code: #eaeaea;
   --border: #dcdcdc;
   --accent: #4f46e5;
+  --accent-text: #fafafa;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -28,6 +29,7 @@
     --code: #232323;
     --border: #343434;
     --accent: #8b85ff;
+    --accent-text: #121212;
   }
 }
 
@@ -38,12 +40,15 @@
 :root[data-theme='dark'] {
   --bg: #121212;
   --text: #eaeaea;
+  --muted: #aaaaaa;
   --error-text: #ffb4ac;
   --error-bg: #3a1c1c;
   --warn-text: #ffd98a;
   --warn-bg: #3a3014;
   --code: #232323;
   --border: #343434;
+  --accent: #8b85ff;
+  --accent-text: #121212;
   color-scheme: dark;
 }
 
@@ -143,6 +148,13 @@ footer,
   padding: 0.5rem 0;
 }
 
+.main-section.options {
+  display: flex;
+  flex-wrap: wrap;
+  flex-align: center;
+  gap: 1rem;
+}
+
 .main-section header {
   margin: 0 0 1rem;
 }
@@ -219,6 +231,34 @@ footer,
   color: var(--muted);
 }
 
+.field {
+  font-weight: 600;
+}
+
+.count {
+  width: 7.5rem;
+}
+
+.checkbox {
+  cursor: pointer;
+}
+
+.field,
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.checkbox input {
+  width: 1.05rem;
+  height: 1.05rem;
+  accent-color: var(--accent);
+  background-color: var(--code);
+  color: var(--text);
+}
+
 .btn {
   font: inherit;
   font-weight: 600;
@@ -240,6 +280,12 @@ footer,
 .btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.btn.primary {
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: var(--accent-text);
 }
 
 .btn.subtle {

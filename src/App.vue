@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { useTheme } from './composables/useTheme'
 import PatternEditor from './components/PatternEditor.vue'
 import ValidationList from './components/ValidationList.vue'
+import OptionsBar from './components/OptionsBar.vue'
 import StatusMessage from './components/StatusMessage.vue'
 
 const logoUrl = `${import.meta.env.BASE_URL}favicon.svg`
@@ -49,6 +50,7 @@ function notImplemented(): void {
       <div class="content">
         <PatternEditor />
         <ValidationList :errors="errors" :warnings="warnings" />
+        <OptionsBar />
         <StatusMessage :status="status" />
       </div>
     </main>
