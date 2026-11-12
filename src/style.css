@@ -75,25 +75,28 @@ code {
 
 /* ----- Layout ----- */
 
-.app {
+.content {
   max-width: 1180px;
   margin: 0 auto;
-  padding: 0 1rem 1.5rem;
 }
 
 .topbar {
   position: sticky;
   top: 0;
   z-index: 5;
+  backdrop-filter: blur(8px);
+  border-radius: 0 0 0.5rem 0.5rem;
+  padding: 0.75rem 1rem;
+  background: color-mix(in srgb, color-mix(in srgb, var(--accent) 90%, var(--bg)) 10%, transparent);
+  transition: background-color var(--transition);
+}
+
+.topbar .content {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem 1rem;
-  padding: 0.75rem 0;
-  background: color-mix(in srgb, var(--bg) 88%, transparent);
-  backdrop-filter: blur(8px);
-  transition: background-color var(--transition);
 }
 
 .brand {
