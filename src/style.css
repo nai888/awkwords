@@ -6,6 +6,7 @@
   --code: #eaeaea;
   --border: #dcdcdc;
   --accent: #4f46e5;
+  --transition: 0.12s;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,6 +39,7 @@
 
 html {
   background: var(--bg);
+  transition: background-color var(--transition);
 }
 
 body {
@@ -52,6 +54,7 @@ body {
   font-weight: regular;
   line-height: 1.5;
   -webkit-text-size-adjust: 100%;
+  transition: background-color var(--transition), color var(--transition);
 }
 
 h1,
@@ -67,6 +70,7 @@ code {
   background: var(--code);
   padding: 0.1rem 0.35rem;
   border-radius: 0.25rem;
+  transition: background-color var(--transition);
 }
 
 /* ----- Layout ----- */
@@ -89,6 +93,7 @@ code {
   padding: 0.75rem 0;
   background: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: blur(8px);
+  transition: background-color var(--transition);
 }
 
 .brand {
@@ -113,11 +118,12 @@ code {
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  transition: background-color 0.12s, border-color 0.12s;
+  transition: background-color var(--transition), border-color var(--transition), color var(--transition);
 }
 
 .btn:hover:not(:disabled) {
   border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
+  transition: border-color var(--transition);
 }
 
 .btn:disabled {
