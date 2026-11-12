@@ -1,6 +1,7 @@
 {
   "name": "awkwords",
-  "version": "0.0.0",
+  "version": "1.3.0",
+  "description": "Generate random words from patterns.",
   "private": true,
   "type": "module",
   "scripts": {
