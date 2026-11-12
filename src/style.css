@@ -2,9 +2,15 @@
   --transition: 0.12s;
   --font: 'Noto Sans', system-ui, -apple-system, sans-serif;
   --mono: 'Noto Sans Mono', ui-monospace, monospace;
+  --radius: 0.5rem;
+  --radius-small: 0.25rem;
   --bg: #fafafa;
   --text: #121212;
   --muted: #5a5a5a;
+  --error-text: #8a1c14;
+  --error-bg: #fdeceb;
+  --warn-text: #6b4a00;
+  --warn-bg: #fff6df;
   --code: #eaeaea;
   --border: #dcdcdc;
   --accent: #4f46e5;
@@ -15,6 +21,10 @@
     --bg: #121212;
     --text: #eaeaea;
     --muted: #aaaaaa;
+    --error-text: #ffb4ac;
+    --error-bg: #3a1c1c;
+    --warn-text: #ffd98a;
+    --warn-bg: #3a3014;
     --code: #232323;
     --border: #343434;
     --accent: #8b85ff;
@@ -28,6 +38,10 @@
 :root[data-theme='dark'] {
   --bg: #121212;
   --text: #eaeaea;
+  --error-text: #ffb4ac;
+  --error-bg: #3a1c1c;
+  --warn-text: #ffd98a;
+  --warn-bg: #3a3014;
   --code: #232323;
   --border: #343434;
   color-scheme: dark;
@@ -71,7 +85,7 @@ code {
   font-size: 0.9rem;
   background: var(--code);
   padding: 0.1rem 0.35rem;
-  border-radius: 0.25rem;
+  border-radius: var(--radius-small);
   transition: background-color var(--transition);
 }
 
@@ -80,7 +94,8 @@ code {
 header:not(main header),
 main,
 footer,
-.toast {
+.toast,
+.message-list {
   padding: 0.75rem 1rem;
 }
 
@@ -93,7 +108,7 @@ footer,
   position: sticky;
   top: 0;
   z-index: 5;
-  border-radius: 0 0 0.5rem 0.5rem;
+  border-radius: 0 0 var(--radius) var(--radius);
   backdrop-filter: blur(8px);
 }
 
@@ -130,7 +145,7 @@ footer,
   color: var(--text);
   background: var(--code);
   border: 1px solid var(--border);
-  border-radius: 0.5rem;
+  border-radius: var(--radius);
   padding: 0.5rem 1rem;
   cursor: pointer;
   transition: background-color var(--transition), border-color var(--transition), color var(--transition);
@@ -201,7 +216,7 @@ footer,
   caret-color: var(--text);
   background: var(--code);
   border: 1px solid var(--border);
-  border-radius: 0.5rem;
+  border-radius: var(--radius);
   transition: background-color var(--transition), border-color var(--transition);
 }
 
@@ -244,15 +259,44 @@ footer,
   color: var(--muted);
 }
 
+/* ----- Messages ----- */
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.message-list {
+  list-style: none;
+  margin: 0;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.message-list.error {
+  background: var(--error-bg);
+  color: var(--error-text);
+}
+
+.message-list.warning {
+  background: var(--warn-bg);
+  color: var(--warn-text);
+}
+
 .status {
   min-height: 7rem;
+  margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .toast {
-  border-radius: 0.5rem;
+  border-radius: var(--radius);
 }
 
 .status p {
@@ -261,8 +305,10 @@ footer,
   font-size: 0.9rem;
 }
 
+/* ----- Footer ----- */
+
 footer {
-  margin: 1rem 0;
+  /* hold for now */
 }
 
 .footer-text {

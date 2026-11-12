@@ -2,11 +2,14 @@
 import { ref } from 'vue'
 import { useTheme } from './composables/useTheme'
 import PatternEditor from './components/PatternEditor.vue'
+import ValidationList from './components/ValidationList.vue'
 import StatusMessage from './components/StatusMessage.vue'
 
 const logoUrl = `${import.meta.env.BASE_URL}favicon.svg`
 const { label: themeLabel, cycle: cycleTheme } = useTheme()
 
+const errors: string[] = []
+const warnings: string[] = []
 const status = ref('')
 
 // toast message
@@ -45,6 +48,7 @@ function notImplemented(): void {
     <main class="layout">
       <div class="content">
         <PatternEditor />
+        <ValidationList :errors="errors" :warnings="warnings" />
         <StatusMessage :status="status" />
       </div>
     </main>
