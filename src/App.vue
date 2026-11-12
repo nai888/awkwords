@@ -31,13 +31,13 @@ function notImplemented(): void {
           <h1>Awkwords</h1>
         </div>
         <nav class="toolbar" aria-label="Tools">
-          <button type="button" class="btn subtle" @click="notImplemented">Open</button>
-          <button type="button" class="btn subtle" @click="notImplemented">Save</button>
-          <button type="button" class="btn subtle" @click="notImplemented">Share</button>
+          <button type="button" class="btn subtle" disabled @click="notImplemented">Open</button>
+          <button type="button" class="btn subtle" disabled @click="notImplemented">Save</button>
+          <button type="button" class="btn subtle" disabled @click="notImplemented">Share</button>
           <button type="button" class="btn subtle" @click="cycleTheme">
             {{ themeLabel }} Theme
           </button>
-          <button type="button" class="btn subtle" @click="notImplemented">Help</button>
+          <button type="button" class="btn subtle" disabled @click="notImplemented">Help</button>
         </nav>
       </div>
     </header>

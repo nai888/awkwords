@@ -140,6 +140,16 @@ code {
   cursor: not-allowed;
 }
 
+.btn.subtle {
+  background: transparent;
+  border-color: transparent;
+}
+
+.btn.subtle:hover:not(:disabled) {
+  background: var(--code);
+  border: 1px solid var(--border);
+}
+
 .status {
   min-height: 6rem;
   margin: 0.75rem;
