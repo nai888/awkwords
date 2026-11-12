@@ -7,6 +7,7 @@ import OptionsBar from './components/OptionsBar.vue'
 import StatusMessage from './components/StatusMessage.vue'
 
 const logoUrl = `${import.meta.env.BASE_URL}favicon.svg`
+const VERSION = '1.3.0'
 const { label: themeLabel, cycle: cycleTheme } = useTheme()
 
 const errors: string[] = []
@@ -57,7 +58,7 @@ function notImplemented(): void {
     <footer class="footer">
       <div class="content">
         <p class="footer-text">
-          Awkwords by Petr Mejzlík. Ported to Vue by Ian Cook.
+          Awkwords by Petr Mejzlík. Ported to Vue by Ian Cook. Version {{ VERSION }}.
           <a href="https://github.com/nai888/awkwords" target="_blank" rel="noreferrer noopener"
             >View on GitHub</a
           >.

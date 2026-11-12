@@ -37,7 +37,7 @@ const canAddRow = true
           aria-label="`Edit weights for subpattern`"
           disabled
         >
-          &#x2699;
+          &#x2696;
         </button>
         <button
           type="button"
@@ -77,7 +77,7 @@ const canAddRow = true
         aria-label="`Edit weights for subpattern`"
         disabled
       >
-        &#x2699;
+        &#x2696;
       </button>
     </div>
   </section>
