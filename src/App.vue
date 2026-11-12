@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const logoUrl = `${import.meta.env.BASE_URL}favicon.svg`
+const themeLabel = 'Dark' // temporary holding
 </script>
 
 <template>
@@ -9,6 +10,12 @@ const logoUrl = `${import.meta.env.BASE_URL}favicon.svg`
         <img :src="logoUrl" alt="" width="28" height="28" />
         <h1>Awkwords</h1>
       </div>
+      <nav class="toolbar" aria-label="Tools">
+        <button type="button" class="btn subtle">Open</button>
+        <button type="button" class="btn subtle">Save</button>
+        <button type="button" class="btn subtle">Share</button>
+        <button type="button" class="btn subtle">{{ themeLabel }} Theme</button>
+      </nav>
     </header>
   </div>
 </template>
