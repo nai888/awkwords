@@ -63,3 +63,31 @@ code {
   padding: 0.1rem 0.35rem;
   border-radius: 0.25rem;
 }
+
+/* ----- Layout ----- */
+
+.app {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 1rem 1.5rem;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding: 0.75rem 0;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
