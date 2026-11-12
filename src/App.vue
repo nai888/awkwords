@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { useTheme } from './composables/useTheme'
+
 const logoUrl = `${import.meta.env.BASE_URL}favicon.svg`
-const themeLabel = 'Dark' // temporary holding
+const { label: themeLabel, cycle: cycleTheme } = useTheme()
 </script>
 
 <template>
@@ -14,7 +16,7 @@ const themeLabel = 'Dark' // temporary holding
         <button type="button" class="btn subtle">Open</button>
         <button type="button" class="btn subtle">Save</button>
         <button type="button" class="btn subtle">Share</button>
-        <button type="button" class="btn subtle">{{ themeLabel }} Theme</button>
+        <button type="button" class="btn subtle" @click="cycleTheme">{{ themeLabel }} Theme</button>
       </nav>
     </header>
   </div>
