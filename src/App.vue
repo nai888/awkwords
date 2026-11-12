@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useTheme } from './composables/useTheme'
+import StatusMessage from './components/StatusMessage.vue'
 
 const logoUrl = `${import.meta.env.BASE_URL}favicon.svg`
 const { label: themeLabel, cycle: cycleTheme } = useTheme()
@@ -42,11 +43,7 @@ function notImplemented(): void {
     </header>
     <main class="layout">
       <div class="content">
-        <section class="status" role="alert" aria-label="Notification">
-          <div class="toast" v-if="status">
-            <p>{{ status }}</p>
-          </div>
-        </section>
+        <StatusMessage :status="status" />
       </div>
     </main>
     <footer class="footer">
@@ -61,5 +58,3 @@ function notImplemented(): void {
     </footer>
   </div>
 </template>
-
-<style scoped></style>
