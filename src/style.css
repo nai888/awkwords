@@ -138,53 +138,6 @@ footer,
   gap: 0.25rem;
 }
 
-.btn {
-  font: inherit;
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: var(--text);
-  background: var(--code);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  transition: background-color var(--transition), border-color var(--transition), color var(--transition);
-}
-
-.btn:hover:not(:disabled) {
-  border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
-  transition: border-color var(--transition);
-}
-
-.btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.btn.subtle {
-  background: transparent;
-  border-color: transparent;
-}
-
-.btn.subtle:hover:not(:disabled) {
-  background: var(--code);
-  border: 1px solid var(--border);
-}
-
-.btn.icon {
-  flex: none;
-  font-size: 1.2rem;
-  line-height: 1;
-  height: 2.625rem;
-  width: 2.625rem;
-  padding: 0.5rem 0.75rem;
-  color: var(--muted);
-}
-
-.btn.wide {
-  padding: 0.5rem 3rem;
-}
-
 .main-section {
   margin: 1rem 0;
   padding: 0.5rem 0;
@@ -204,6 +157,13 @@ footer,
   margin: 0;
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+/* ----- Forms ----- */
+
+:where(button, input, textarea, select):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .input {
@@ -257,6 +217,53 @@ footer,
 
 .equals {
   color: var(--muted);
+}
+
+.btn {
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text);
+  background: var(--code);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color var(--transition), border-color var(--transition), color var(--transition);
+}
+
+.btn:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
+  transition: border-color var(--transition);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn.subtle {
+  background: transparent;
+  border-color: transparent;
+}
+
+.btn.subtle:hover:not(:disabled) {
+  background: var(--code);
+  border: 1px solid var(--border);
+}
+
+.btn.icon {
+  flex: none;
+  font-size: 1.2rem;
+  line-height: 1;
+  height: 2.625rem;
+  width: 2.625rem;
+  padding: 0.5rem 0.75rem;
+  color: var(--muted);
+}
+
+.btn.wide {
+  padding: 0.5rem 3rem;
 }
 
 /* ----- Messages ----- */
