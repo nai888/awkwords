@@ -150,9 +150,88 @@ code {
   border: 1px solid var(--border);
 }
 
+.btn.icon {
+  flex: none;
+  font-size: 1.2rem;
+  line-height: 1;
+  height: 2.625rem;
+  width: 2.625rem;
+  padding: 0.5rem 0.75rem;
+  color: var(--muted);
+}
+
+.main-section {
+  margin: 1rem 0;
+  padding: 1rem 0;
+}
+
+.section-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.input {
+  width: 100%;
+  height: 2.625rem;
+  min-width: 0;
+  padding: 0.5rem 0.75rem;
+  font: inherit;
+  color: var(--text);
+  caret-color: var(--text);
+  background: var(--code);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  transition: background-color var(--transition), border-color var(--transition);
+}
+
+.input:hover {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+}
+
+.mono {
+  font-family: var(--mono);
+}
+
+.rows {
+  list-style: none;
+  margin: 0.5rem 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.name {
+  width: 3rem;
+  flex: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.value {
+  /* hold for now */
+}
+
+.equals {
+  color: var(--muted);
+}
+
 .status {
-  min-height: 6rem;
-  margin: 0.75rem;
+  min-height: 7rem;
   display: flex;
   align-items: center;
   justify-content: center;

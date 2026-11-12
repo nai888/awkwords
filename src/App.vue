@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useTheme } from './composables/useTheme'
+import PatternEditor from './components/PatternEditor.vue'
 import StatusMessage from './components/StatusMessage.vue'
 
 const logoUrl = `${import.meta.env.BASE_URL}favicon.svg`
@@ -33,7 +34,7 @@ function notImplemented(): void {
         <nav class="toolbar" aria-label="Tools">
           <button type="button" class="btn subtle" disabled @click="notImplemented">Open</button>
           <button type="button" class="btn subtle" disabled @click="notImplemented">Save</button>
-          <button type="button" class="btn subtle" disabled @click="notImplemented">Share</button>
+          <button type="button" class="btn subtle" @click="notImplemented">Share</button>
           <button type="button" class="btn subtle" @click="cycleTheme">
             {{ themeLabel }} Theme
           </button>
@@ -43,6 +44,7 @@ function notImplemented(): void {
     </header>
     <main class="layout">
       <div class="content">
+        <PatternEditor />
         <StatusMessage :status="status" />
       </div>
     </main>
