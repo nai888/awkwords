@@ -53,21 +53,21 @@ defineExpose({ open })
             <th><code>/</code></th>
             <td>
               Splits multiple options; one is chosen at random.<br />
-              <code>tu/top/kan</code> &rarr; <i>tu</i>, <i>top</i> or <i>kan</i>
+              <code>tu/top/kan</code> &rarr; <i>tu</i>, <i>top</i>, or <i>kan</i>
             </td>
           </tr>
           <tr>
             <th><code>[ ]</code></th>
             <td>
               Treats the content as one unit.<br />
-              <code>s[tu/top/kan]</code> &rarr; <i>stu</i>, <i>stop</i> or <i>skan</i>
+              <code>s[tu/top/kan]</code> &rarr; <i>stu</i>, <i>stop</i>, or <i>skan</i>
             </td>
           </tr>
           <tr>
             <th><code>( )</code></th>
             <td>
               Like <code>[ ]</code>, but the content appears only half of the time.<br />
-              <code>s(tu/top/kan)</code> &rarr; <i>s</i>, <i>stu</i>, <i>stop</i> or <i>skan</i>
+              <code>s(tu/top/kan)</code> &rarr; <i>s</i>, <i>stu</i>, <i>stop</i>, or <i>skan</i>
             </td>
           </tr>
           <tr>
@@ -81,14 +81,14 @@ defineExpose({ open })
             <th><code>A</code></th>
             <td>
               A capital letter references a subpattern.<br />
-              If <code>A</code> = <code>tu/top/kan</code>, then<br />
-              <code>sA</code> &rarr; <i>stu</i>, <i>stop</i> or <i>skan</i>
+              If <code>A</code> = <code>tu/top/kan</code>, then <code>sA</code> &rarr; <i>stu</i>,
+              <i>stop</i>, or <i>skan</i>
             </td>
           </tr>
         </tbody>
       </table>
       <p>
-        Brackets nest without limit: <code>at(a(z))</code> gives <i>at</i>, <i>ata</i> or
+        Brackets nest without limit: <code>at(a(z))</code> gives <i>at</i>, <i>ata</i>, or
         <i>ataz</i>, but never <i>atz</i>. Spaces outside quotes are ignored.
       </p>
       <h3>Weights</h3>
@@ -97,8 +97,8 @@ defineExpose({ open })
         chance. Options without a weight have weight 1.
       </p>
       <p>
-        <code>a/b*3/c/d/kek*6</code> &rarr; <i>b</i> is three times as likely as <i>a</i>,
-        <i>c</i> or <i>d</i>; <i>kek</i> is six times as likely.
+        <code>a/b*3/c/d/kek*6</code> &rarr; <i>b</i> is three times as likely as <i>a</i>, <i>c</i>,
+        or <i>d</i>; <i>kek</i> is six times as likely.
       </p>
       <p>
         The &#x2696; buttons open a helper where you can adjust the weight of each top-level option
@@ -178,6 +178,20 @@ defineExpose({ open })
         The source code is available
         <a href="https://github.com/nai888/awkwords" target="_blank" rel="noreferrer noopener"
           >on GitHub</a
+        >
+        along with the
+        <a
+          href="https://github.com/nai888/awkwords/blob/vue/LICENSE"
+          target="_blank"
+          rel="noreferrer noopener"
+          >license</a
+        >
+        and
+        <a
+          href="https://github.com/nai888/awkwords/blob/vue/CHANGELOG.md"
+          target="_blank"
+          rel="noreferrer noopener"
+          >changelog</a
         >.
       </p>
     </article>
