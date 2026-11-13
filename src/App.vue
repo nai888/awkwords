@@ -2,6 +2,7 @@
 import { version as VERSION } from '../package.json'
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import HelpDialog from './components/HelpDialog.vue'
+import StatusMessage from './components/StatusMessage.vue'
 import OptionsBar from './components/OptionsBar.vue'
 import OutputPanel from './components/OutputPanel.vue'
 import PatternEditor from './components/PatternEditor.vue'

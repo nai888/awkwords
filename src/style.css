@@ -384,7 +384,7 @@ footer,
 }
 
 .display-status {
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(0.5rem);
   background: color-mix(in srgb, color-mix(in srgb, var(--accent) 90%, var(--bg)) 10%, transparent);
 }
 
