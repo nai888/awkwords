@@ -142,6 +142,12 @@ footer,
   gap: 0.25rem;
 }
 
+.hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
 .main-section {
   margin: 1rem 0;
   padding: 0.5rem 0;
@@ -154,7 +160,8 @@ footer,
   gap: 1rem;
 }
 
-.main-section header {
+.main-section header,
+.output-truncated {
   margin: 0 0 1rem;
 }
 
@@ -164,10 +171,21 @@ footer,
   gap: 0.125rem;
 }
 
-.hint {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.9rem;
+.row-head {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem;
 }
 
 /* ----- Forms ----- */
@@ -309,6 +327,45 @@ footer,
 
 .btn.wide {
   padding: 0.5rem 3rem;
+}
+
+/* ----- Output ----- */
+
+.output {
+  min-height: 10rem;
+  height: 20vh;
+  resize: vertical;
+}
+
+.stats {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.stats div {
+  background-color: var(--code);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.75rem;
+}
+
+.stats dt {
+  /* hold for now */
+}
+
+.stats dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.stats dd:not(.sub) {
+  font-weight: 700;
+  color: var(--text);
 }
 
 /* ----- Messages ----- */

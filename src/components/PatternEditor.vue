@@ -53,7 +53,7 @@ const canAddRow = true
     <button type="button" class="btn subtle wide" :disabled="!canAddRow">+ Add Subpattern</button>
   </section>
   <section class="main-section" aria-labelledby="pattern-heading">
-    <header class="section-head row-head">
+    <header class="section-head">
       <h2 id="pattern-heading">Pattern</h2>
       <p class="hint">
         Use <code>/</code> to choose, <code>[ ]</code> to group, <code>( )</code> to make optional,

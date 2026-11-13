@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+defineProps<{ busy: boolean }>()
+
 const count = ref(1000)
-const busy = ref(false)
 const canGenerate = ref(true)
 </script>
 
