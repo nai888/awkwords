@@ -55,7 +55,7 @@ function onNameInput(row: Row, event: Event): void {
         />
         <button
           type="button"
-          class="btn icon"
+          class="btn icon subtle"
           title="Edit option weights"
           :aria-label="`Edit weights for subpattern ${row.name || index + 1}`"
           @click="weights?.open({ kind: 'row', id: row.id })"
@@ -64,7 +64,7 @@ function onNameInput(row: Row, event: Event): void {
         </button>
         <button
           type="button"
-          class="btn icon"
+          class="btn icon subtle"
           :aria-label="`Remove subpattern ${row.name || index + 1}`"
           @click="removeRow(row.id)"
         >
@@ -96,10 +96,10 @@ function onNameInput(row: Row, event: Event): void {
       />
       <button
         type="button"
-        class="btn icon"
+        class="btn icon subtle"
         title="Edit option weights"
         aria-label="`Edit weights for subpattern`"
-        disabled
+        @click="weights?.open({ kind: 'pattern' })"
       >
         &#x2696;
       </button>
