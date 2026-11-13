@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { version as VERSION } from '../package.json'
 import { ref } from 'vue'
 import { useTheme } from './composables/useTheme'
 import PatternEditor from './components/PatternEditor.vue'
@@ -8,7 +9,6 @@ import OutputPanel from './components/OutputPanel.vue'
 import StatusMessage from './components/StatusMessage.vue'
 
 const logoUrl = `${import.meta.env.BASE_URL}favicon.svg`
-const VERSION = '1.3.0'
 const { label: themeLabel, cycle: cycleTheme } = useTheme()
 
 const busy = ref(false)
