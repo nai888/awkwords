@@ -102,7 +102,7 @@ defineExpose({ open })
       </p>
       <p>
         The &#x2696; buttons open a helper where you can adjust the weight of each top-level option
-        with + / &#x2212; and see its chance as a percentage. It writes the <code>*n</code> markers
+        with + / &#x2212; and see its chance as a percentage. It writes the <code>*N</code> markers
         into the pattern for you.
       </p>
       <h3>Escaping</h3>
