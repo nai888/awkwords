@@ -18,8 +18,6 @@ const props = defineProps<{
 
 const model = defineModel()
 
-const emit = defineEmits<{ 'update:model': [value: string] }>()
-
 const input = ref<HTMLInputElement | null>(null)
 const layer = ref<HTMLElement | null>(null)
 
@@ -39,7 +37,7 @@ function syncSoon(): void {
 }
 
 function onInput(event: Event): void {
-  emit('update:model', (event.target as HTMLInputElement).value)
+  model.value = (event.target as HTMLInputElement).value
   syncSoon()
 }
 
