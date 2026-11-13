@@ -322,10 +322,6 @@ footer,
   padding: 0.5rem 0.75rem;
 }
 
-.stats dt {
-  /* hold for now */
-}
-
 .stats dd {
   margin: 0;
   font-variant-numeric: tabular-nums;
@@ -399,10 +395,6 @@ footer,
 }
 
 /* ----- Footer ----- */
-
-footer {
-  /* hold for now */
-}
 
 .footer-text {
   font-size: 0.9rem;
