@@ -1,28 +1,31 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { useSettings } from '../composables/useSettings'
 
-defineProps<{ busy: boolean }>()
+defineProps<{ busy: boolean; canGenerate: boolean }>()
 
-const count = ref(1000)
-const canGenerate = ref(true)
+const emit = defineEmits<{ generate: []; cancel: [] }>()
+
+const { state } = useSettings()
 </script>
 
 <template>
   <section class="main-section options" aria-label="Generation Options">
-    <button v-if="busy" type="button" class="btn">Cancel</button>
+    <button v-if="busy" type="button" class="btn" @click="emit('cancel')">Cancel</button>
     <button
       v-else
       type="button"
       class="btn primary"
       :disabled="!canGenerate"
       title="Generate (Ctrl/⌘ + Enter)"
+      @click="emit('generate')"
     >
       Generate
     </button>
+    <div class="spacer" />
     <label class="field">
       <span>Words</span>
       <input
-        :value="count"
+        v-model.number="state.count"
         class="input count"
         type="number"
         inputmode="numeric"
@@ -32,11 +35,11 @@ const canGenerate = ref(true)
       />
     </label>
     <label class="checkbox">
-      <input type="checkbox" />
+      <input v-model="state.newLineEach" type="checkbox" />
       <span>New line each</span>
     </label>
     <label class="checkbox">
-      <input type="checkbox" />
+      <input v-model="state.filterDuplicates" type="checkbox" />
       <span>Filter duplicates</span>
     </label>
   </section>

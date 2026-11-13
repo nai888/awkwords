@@ -1,20 +1,26 @@
 <script setup lang="ts">
 import { version as VERSION } from '../package.json'
-import { ref } from 'vue'
-import { useTheme } from './composables/useTheme'
-import PatternEditor from './components/PatternEditor.vue'
-import ValidationList from './components/ValidationList.vue'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import HelpDialog from './components/HelpDialog.vue'
 import OptionsBar from './components/OptionsBar.vue'
 import OutputPanel from './components/OutputPanel.vue'
-import StatusMessage from './components/StatusMessage.vue'
+import PatternEditor from './components/PatternEditor.vue'
+import ValidationList from './components/ValidationList.vue'
+import { useGenerator } from './composables/useGenerator'
+import { useSettings } from './composables/useSettings'
+import { useTheme } from './composables/useTheme'
+import { DEFAULT_FILENAME, FILE_EXTENSION, serializeSettings } from './engine'
+import { copyText, downloadText, readSettingsFile } from './io/io'
+import { buildShareUrl } from './io/share'
 
+const { state, validation, toConfig, applyConfig } = useSettings()
+const { result, busy, run, cancel } = useGenerator()
+
+const help = ref<InstanceType<typeof HelpDialog> | null>(null)
+const fileInput = ref<HTMLInputElement | null>(null)
 const logoUrl = `${import.meta.env.BASE_URL}favicon.svg`
 const { label: themeLabel, cycle: cycleTheme } = useTheme()
 
-const busy = ref(false)
-
-const errors: string[] = []
-const warnings: string[] = []
 const status = ref('')
 const displayStatus = ref('')
 // toast message
@@ -29,10 +35,59 @@ function notify(message: string): void {
   statusTextTimer = setTimeout(() => (status.value = ''), 3500)
 }
 
-// temporary notification that a feature isn't yet implemented
-function notImplemented(): void {
-  notify('Sorry, this feature is not implemented yet.')
+const canGenerate = computed(() => validation.value.ok && state.pattern !== '')
+let loadedName = ''
+
+function generateWords(): void {
+  if (!canGenerate.value || busy.value) return
+  run(toConfig())
 }
+
+// Messages shown under the editor: live validation problems, plus warnings from the last run.
+const shownWarnings = computed(() =>
+  validation.value.warnings.length > 0 ? validation.value.warnings : (result.value?.warnings ?? []),
+)
+
+function saveFile(): void {
+  downloadText(loadedName || DEFAULT_FILENAME, serializeSettings(toConfig()))
+  notify('Settings saved')
+}
+
+function openFilePicker(): void {
+  fileInput.value?.click()
+}
+
+async function onFileChosen(event: Event): Promise<void> {
+  const input = event.target as HTMLInputElement
+  const file = input.files?.[0]
+  if (!file) {
+    return
+  }
+  try {
+    applyConfig(await readSettingsFile(file))
+    loadedName = file.name // saving again reuses the opened file's name
+    notify(`Loaded ${file.name}`)
+  } catch (error) {
+    notify(error instanceof Error ? error.message : 'Could not read that file')
+  } finally {
+    input.value = '' // allow choosing the same file again
+  }
+}
+
+async function share(): Promise<void> {
+  const url = buildShareUrl(toConfig(), location.href)
+  notify((await copyText(url)) ? 'Share link copied' : 'Could not copy the link')
+}
+
+function onKeydown(event: KeyboardEvent): void {
+  if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) {
+    event.preventDefault()
+    generateWords()
+  }
+}
+
+onMounted(() => window.addEventListener('keydown', onKeydown))
+onBeforeUnmount(() => window.removeEventListener('keydown', onKeydown))
 </script>
 
 <template>
@@ -44,22 +99,41 @@ function notImplemented(): void {
           <h1>Awkwords</h1>
         </div>
         <nav class="toolbar" aria-label="Tools">
-          <button type="button" class="btn subtle" disabled @click="notImplemented">Open</button>
-          <button type="button" class="btn subtle" disabled @click="notImplemented">Save</button>
-          <button type="button" class="btn subtle" @click="notImplemented">Share</button>
+          <button type="button" class="btn subtle" @click="openFilePicker">Open</button>
+          <button type="button" class="btn subtle" @click="saveFile">Save</button>
+          <button type="button" class="btn subtle" @click="share">Share</button>
           <button type="button" class="btn subtle" @click="cycleTheme">
             {{ themeLabel }} Theme
           </button>
-          <button type="button" class="btn subtle" disabled @click="notImplemented">Help</button>
+          <button type="button" class="btn subtle" @click="help?.open()">Help</button>
         </nav>
       </div>
+      <input
+        ref="fileInput"
+        type="file"
+        class="visually-hidden"
+        :accept="`${FILE_EXTENSION},.txt,text/plain`"
+        tabindex="-1"
+        aria-hidden="true"
+        @change="onFileChosen"
+      />
     </header>
     <main class="layout">
       <div class="content">
         <PatternEditor />
-        <ValidationList :errors="errors" :warnings="warnings" />
-        <OptionsBar :busy="busy" />
-        <OutputPanel :busy="busy" :errors="errors" />
+        <ValidationList :errors="validation.errors" :warnings="shownWarnings" />
+        <OptionsBar
+          :busy="busy"
+          :can-generate="canGenerate"
+          @generate="generateWords"
+          @cancel="cancel"
+        />
+        <OutputPanel
+          :result="result"
+          :busy="busy"
+          :new-line-each="state.newLineEach"
+          @notify="notify"
+        />
       </div>
     </main>
     <StatusMessage :status="status" :displayStatus="displayStatus" />
@@ -73,5 +147,6 @@ function notImplemented(): void {
         </p>
       </div>
     </footer>
+    <HelpDialog ref="help" />
   </div>
 </template>
