@@ -14,7 +14,8 @@ The format of this changelog is based on [Keep a Changelog](https://keepachangel
 - The current settings/state are saved in localStorage.
 - Current settings can be shared via a link.
 - Syntax highlighting in pattern and subpattern fields.
-- Generated output can be immediately copied to the clipboard or downloaded to a `.txt` file.
+- A new dialog window facilitates (and illustrates) the weighting of options.
+- Generated output can be copied to the clipboard or downloaded to a `.txt` file.
 - Added theming (system/light/dark).
 - Word generation delegates to a Web Worker for large runs.
 - A keyboard shortcut (Ctrl/Cmd + Enter) triggers word generation.
