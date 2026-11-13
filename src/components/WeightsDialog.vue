@@ -90,7 +90,7 @@ function resetAll(): void {
     <article class="help-body">
       <header class="help-head">
         <h2 id="weights-title">{{ title }}</h2>
-        <button type="button" class="btn icon" aria-label="Close" @click="close">×</button>
+        <button type="button" class="btn icon" aria-label="Close" @click="close">&#x2715;</button>
       </header>
 
       <p v-if="!editable" class="notice warning-note">
@@ -125,6 +125,7 @@ function resetAll(): void {
                 type="number"
                 inputmode="numeric"
                 min="1"
+                :name="`option ${i + 1}`"
                 :max="MAX_WEIGHT"
                 :value="o.weight"
                 :aria-label="`Weight of ${o.text || 'empty option'}`"

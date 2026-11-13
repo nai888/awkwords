@@ -88,6 +88,7 @@ function onNameInput(row: Row, event: Event): void {
     <div class="row">
       <HighlightedInput
         v-model="state.pattern"
+        class="grow"
         large
         placeholder="CV(N)"
         ariaLabel="Main pattern"

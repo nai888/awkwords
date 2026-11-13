@@ -26,7 +26,9 @@ defineExpose({ open })
     <article class="help-body">
       <header class="help-head">
         <h2 id="help-title">Awkwords v{{ VERSION }} Help</h2>
-        <button type="button" class="btn icon" aria-label="Close help" @click="close">×</button>
+        <button type="button" class="btn icon" aria-label="Close help" @click="close">
+          &#x2715;
+        </button>
       </header>
       <p>
         Awkwords randomly generates words from a pattern. Use it for words in a constructed
