@@ -13,13 +13,17 @@ const { label: themeLabel, cycle: cycleTheme } = useTheme()
 const errors: string[] = []
 const warnings: string[] = []
 const status = ref('')
-
+const displayStatus = ref('')
 // toast message
 let statusTimer: ReturnType<typeof setTimeout> | undefined
+let statusTextTimer: ReturnType<typeof setTimeout> | undefined
 function notify(message: string): void {
+  displayStatus.value = 'display-status'
   status.value = message
   clearTimeout(statusTimer)
-  statusTimer = setTimeout(() => (status.value = ''), 3000)
+  clearTimeout(statusTextTimer)
+  statusTimer = setTimeout(() => (displayStatus.value = ''), 3250)
+  statusTextTimer = setTimeout(() => (status.value = ''), 3500)
 }
 
 // temporary notification that a feature isn't yet implemented
@@ -52,9 +56,9 @@ function notImplemented(): void {
         <PatternEditor />
         <ValidationList :errors="errors" :warnings="warnings" />
         <OptionsBar />
-        <StatusMessage :status="status" />
       </div>
     </main>
+    <StatusMessage :status="status" :displayStatus="displayStatus" />
     <footer class="footer">
       <div class="content">
         <p class="footer-text">
