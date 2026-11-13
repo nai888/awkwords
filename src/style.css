@@ -30,7 +30,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  transition: background-color var(--transition), border-color var(--transition), color var(--transition), backdrop-filter var(--transition)
+  transition: background-color var(--transition), border-color var(--transition), color var(--transition), backdrop-filter var(--transition);
 }
 
 html {
