@@ -30,6 +30,7 @@ The format of this changelog is based on [Keep a Changelog](https://keepachangel
 - Massively large numbers for the maximum number of words stat will be accurate by using the `bigInt` type.
 - Changing the setting for "New line each" updates the results immediately, rather than waiting until the next word generation.
 - Updated icon and branding.
+- Separated this changelog into its own file in the repository instead of being contained in the Help page.
 
 ## [v1.2](https://github.com/nai888/awkwords/compare/v1.1...v1.2) - 2010-04-05
 
