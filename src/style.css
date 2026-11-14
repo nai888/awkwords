@@ -5,7 +5,7 @@
   --mono: 'Noto Sans Mono', ui-monospace, monospace;
   --radius: 0.5rem;
   --radius-small: 0.25rem;
-  --accent: #468FE5;
+  --accent: #468fe5;
   /* #f6fafe #020712 */
   --bg: light-dark(color-mix(#ffffff 95%, var(--accent)), color-mix(#000000 80%, var(--accent)));
   /* #030e1d #edf4fd */
@@ -22,25 +22,28 @@
   --warn-bg: light-dark(color-mix(var(--bg) 70%, #ffff00), color-mix(var(--bg) 75%, #ffff00));
   /* #dfe3e7 #111a26 */
   --code: light-dark(color-mix(var(--bg) 93%, #000000), color-mix(var(--bg) 90%, #ffffff));
-  /* #d6d9dd, #2d3641 */
+  /* #d6d9dd #2d3641 */
   --border: light-dark(color-mix(var(--bg) 90%, #000000), color-mix(var(--bg) 77%, #ffffff));
-  /* #ecf0f4, #0b1420 */
-  --accent-text: light-dark(color-mix(var(--bg) 97%, #000000), color-mix(var(--bg) 93%, #ffffff));
-  /* */
+  /* #76777a #636a73  */
+  --border-input: light-dark(color-mix(var(--bg) 58%, #000000), color-mix(var(--bg) 55%, #ffffff));
+  /* #030e1d #0b1420 */
+  --accent-text: light-dark(var(--text), color-mix(var(--bg) 93%, #ffffff));
+  /* #030e1d #edf4fd */
   --hl-literal: var(--text);
-  --hl-letter: var(--accent);
-  /* #ff3f32 #d51c1b */
-  --hl-problem: light-dark(color-mix(var(--text) 15%, #ff0000), color-mix(var(--text) 10%, #ff0000));
+  /* #28578e #468fe5 */
+  --hl-letter: light-dark(color-mix(var(--accent) 70%, #000000), var(--accent));
+  /* #c22120 #d51c1b */
+  --hl-problem: light-dark(color-mix(var(--text) 22%, #ff0000), color-mix(var(--text) 10%, #ff0000));
   /* #4246cc #b7b9ff */
   --hl-bracket: light-dark(color-mix(var(--text) 20%, #5555ff), color-mix(var(--text) 20%, #aaaaff));
-  /* #b8802c #fcc276 */
-  --hl-slash: light-dark(color-mix(var(--text) 25%, #ffaa00), color-mix(var(--text) 30%, #ffaa00));
-  /* #c74a21 #ffac95 */
-  --hl-weight: light-dark(color-mix(var(--text) 20%, #ff5500), color-mix(var(--text) 50%, #ff5500));
-  /* #be185d #f9a8d4 */
-  --hl-filter: light-dark(color-mix(var(--text) 35%, #00ffff), color-mix(var(--text) 50%, #00ffff));
-  /* #049536 #a3fda6 */
-  --hl-quoted: light-dark(color-mix(var(--text) 40%, #00ff00), color-mix(var(--text) 50%, #00ff00));
+  /* #7d5d31 #fbc276 */
+  --hl-slash: light-dark(color-mix(var(--text) 47%, #ffaa00), color-mix(var(--text) 30%, #ffaa00));
+  /* #a94327 #ffac95 */
+  --hl-weight: light-dark(color-mix(var(--text) 31%, #ff5500), color-mix(var(--text) 50%, #ff5500));
+  /* #106d77 #f9a8d4 */
+  --hl-filter: light-dark(color-mix(var(--text) 56%, #00ffff), color-mix(var(--text) 50%, #00ffff));
+  /* #047236 #a3fda6 */
+  --hl-quoted: light-dark(color-mix(var(--text) 54%, #00ff00), color-mix(var(--text) 50%, #00ff00));
 }
 
 :root[data-theme='light'] {
@@ -89,6 +92,14 @@ code {
   background: var(--code);
   padding: 0.1rem 0.35rem;
   border-radius: var(--radius-small);
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: var(--hl-letter);
 }
 
 /* ----- Layout ----- */
@@ -200,12 +211,12 @@ footer,
   color: var(--text);
   caret-color: var(--text);
   background: var(--code);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-input);
   border-radius: var(--radius);
 }
 
 .input:hover {
-  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border-input));
 }
 
 .grow {
@@ -277,14 +288,14 @@ footer,
   font-size: 0.9rem;
   color: var(--text);
   background: var(--code);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-input);
   border-radius: var(--radius);
   padding: 0.5rem 1rem;
   cursor: pointer;
 }
 
 .btn:hover:not(:disabled) {
-  border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
+  border-color: color-mix(in srgb, var(--accent) 50%, var(--border-input));
 }
 
 .btn:disabled {
@@ -294,7 +305,7 @@ footer,
 
 .btn.primary {
   background: var(--accent);
-  border: 1px solid var(--accent);
+  border: 1px solid var(--border);
   color: var(--accent-text);
 }
 
@@ -305,7 +316,7 @@ footer,
 
 .btn.subtle:hover:not(:disabled) {
   background: var(--code);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-input);
 }
 
 .btn.icon {
@@ -440,7 +451,7 @@ footer,
   position: relative;
   min-width: 0;
   background: var(--code);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-input);
   border-radius: var(--radius);
   font-family: var(--mono);
   font-size: 0.95rem;
@@ -454,7 +465,7 @@ footer,
 }
 
 .hl-wrap:hover {
-  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border-input));
 }
 
 .hl-wrap:focus-within {
