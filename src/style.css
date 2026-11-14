@@ -30,19 +30,19 @@
   --accent-text: light-dark(var(--text), color-mix(var(--bg) 93%, #ffffff));
   /* #030e1d #edf4fd */
   --hl-literal: var(--text);
-  /* #28578e #468fe5 */
-  --hl-letter: light-dark(color-mix(var(--accent) 70%, #000000), var(--accent));
+  /* #0762c2 #468fe5 */
+  --hl-letter: light-dark(color-mix(var(--text) 24%, #0080ff), var(--accent));
   /* #c22120 #d51c1b */
   --hl-problem: light-dark(color-mix(var(--text) 22%, #ff0000), color-mix(var(--text) 10%, #ff0000));
-  /* #4246cc #b7b9ff */
-  --hl-bracket: light-dark(color-mix(var(--text) 20%, #5555ff), color-mix(var(--text) 20%, #aaaaff));
-  /* #7d5d31 #fbc276 */
-  --hl-slash: light-dark(color-mix(var(--text) 47%, #ffaa00), color-mix(var(--text) 30%, #ffaa00));
-  /* #a94327 #ffac95 */
-  --hl-weight: light-dark(color-mix(var(--text) 31%, #ff5500), color-mix(var(--text) 50%, #ff5500));
-  /* #106d77 #f9a8d4 */
+  /* #720fe5 #b266ff */
+  --hl-bracket: light-dark(color-mix(var(--text) 10%, #8000ff), color-mix(var(--text) 25%, #a000ff));
+  /* #90522d #fbc276 */
+  --hl-slash: light-dark(color-mix(var(--text) 40%, #ff8000), color-mix(var(--text) 30%, #ffaa00));
+  /* #a722af #fea1ff */
+  --hl-weight: light-dark(color-mix(var(--text) 32%, #ff00ff), color-mix(var(--text) 50%, #ff00ff));
+  /* #0e6c77 #f9a8d4 */
   --hl-filter: light-dark(color-mix(var(--text) 56%, #00ffff), color-mix(var(--text) 50%, #00ffff));
-  /* #047236 #a3fda6 */
+  /* #057335 #a3fda6 */
   --hl-quoted: light-dark(color-mix(var(--text) 54%, #00ff00), color-mix(var(--text) 50%, #00ff00));
 }
 
