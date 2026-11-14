@@ -1,25 +1,21 @@
 # Awkwords
 
-Awkwords is a simple online application that randomly generates words from a given pattern. Awkwords was created by [Petr Mejzlík](https://github.com/petmir).
+Awkwords is an online application that randomly generates words from a given pattern. Awkwords was created by [Petr Mejzlík](https://github.com/petmir) sometime in the late 2000s, and version 1.2 was released in 2010.
 
-## Newer Version: [LanguaGen](https://github.com/nai888/langua)
+## Version 1.3
 
-Do you love Awkwords? Consider checking out [Langua](https://github.com/nai888/langua). Langua is a suite of language tools, one of which is a direct successor to Awkwords. LanguaGen is a faster, modernized version of Awkwords built in JavaScript instead of PHP. It’s a full progressive web app and doesn’t require a server, so it can be used on your phone and even offline!
+<img src="./public/favicon-old.ico" width="16px" alt="Old favicon" /> Versions 1.0, 1.1, and 1.2 were built using PHP. It required a PHP server running to serve the webpage and handle the word generation. All calculations were done server-side, so there was always a lag while your browser communicated with the server and then the server communicated back.
 
-## Known Awkwords Hosts
+<img src="./public/favicon.ico" width="16px" alt="New favicon" /> Version 1.3.0 is completely rebuilt from scratch using Vue 3 and Vite. This allows the app to work without PHP, or truly without any back-end server at all. All word generation is handled within your browser, so it runs blazingly fast and works offline. It also works just as well on your phone. For a full list of changes, see the [changelog](./CHANGELOG.md).
 
-If you know of any websites where Awkwords is hosted that aren't listed below, please feel free to open a pull request to add to the list or open an issue to alert the repo owner.
+## Getting Started
 
-### [v1.2](https://github.com/nai888/awkwords/releases/tag/v1.2)
+```bash
+npm install
+npm run dev        # development server
+npm test           # Vitest unit tests
+npm run build      # typecheck + production build in dist/
+npm run preview    # serve the production build
+```
 
-- http://akana.conlang.org/tools/awkwords/
-
-### [v1.1](https://github.com/nai888/awkwords/releases/tag/v1.1)
-
-- http://bprhad.wz.cz/awkwords/
-
-### v1.0
-
-### Pre-v1.0
-
-- http://bprhad.wz.cz/f/
+`dist/` is a static site with relative paths, so it can be hosted from any folder or static host.
