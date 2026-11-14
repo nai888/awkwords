@@ -23,7 +23,7 @@
   /* #dfe3e7 #111a26 */
   --code: light-dark(color-mix(var(--bg) 93%, #000000), color-mix(var(--bg) 90%, #ffffff));
   /* #d6d9dd #2d3641 */
-  --border: light-dark(color-mix(var(--bg) 90%, #000000), color-mix(var(--bg) 77%, #ffffff));
+  --border: light-dark(color-mix(var(--bg) 90%, #000000), color-mix(var(--bg) 80%, #ffffff));
   /* #76777a #636a73  */
   --border-input: light-dark(color-mix(var(--bg) 58%, #000000), color-mix(var(--bg) 55%, #ffffff));
   /* #030e1d #0b1420 */
@@ -353,8 +353,9 @@ footer,
   color: var(--muted);
 }
 
-.stats div {
+.stat {
   background-color: var(--code);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 0.5rem 0.75rem;
 }

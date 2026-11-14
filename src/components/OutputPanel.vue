@@ -71,6 +71,7 @@ function selectAll(): void {
     </p>
     <textarea
       ref="output"
+      name="output"
       class="input mono output"
       readonly
       spellcheck="false"
@@ -81,11 +82,11 @@ function selectAll(): void {
     />
     <p v-if="busy" class="hint stats" role="status">Generating&hellip;</p>
     <dl v-else-if="result && result.errors.length === 0" class="stats">
-      <div>
+      <div class="stat">
         <dt>{{ result.printed === 1 ? 'Word' : 'Words' }}</dt>
         <dd>{{ result.printed.toLocaleString() }}</dd>
       </div>
-      <div>
+      <div class="stat">
         <dt>Filtered out</dt>
         <dd>{{ result.dropped.toLocaleString() }}</dd>
         <dd v-if="result.dropped > 0" class="sub">
@@ -99,11 +100,11 @@ function selectAll(): void {
           </template>
         </dd>
       </div>
-      <div>
+      <div class="stat">
         <dt>Time</dt>
         <dd>{{ (result.ms / 1000).toFixed(3) }} seconds</dd>
       </div>
-      <div>
+      <div class="stat">
         <dt>Max. different words</dt>
         <dd :title="result.possibilities.toString()">{{ formatBigInt(result.possibilities) }}</dd>
       </div>
