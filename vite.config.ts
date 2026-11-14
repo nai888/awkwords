@@ -16,7 +16,7 @@ export default defineConfig({
         name: 'Awkwords',
         short_name: 'Awkwords',
         description: 'Generate random words from patterns. Works offline.',
-        theme_color: '#4f46e5',
+        theme_color: '#468FE5',
         background_color: '#ffffff',
         display: 'standalone',
         start_url: './',
