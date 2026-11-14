@@ -5,17 +5,42 @@
   --mono: 'Noto Sans Mono', ui-monospace, monospace;
   --radius: 0.5rem;
   --radius-small: 0.25rem;
-  --bg: light-dark(#fafafa, #121212);
-  --text: light-dark(#121212, #eaeaea);
-  --muted: light-dark(#5a5a5a, #aaaaaa);
-  --error-text: light-dark(#8a1c14, #ffb4ac);
-  --error-bg: light-dark(#fdeceb, #3a1c1c);
-  --warn-text: light-dark(#6b4a00, #ffd98a);
-  --warn-bg: light-dark(#fff6df, #3a3014);
-  --code: light-dark(#eaeaea, #232323);
-  --border: light-dark(#dcdcdc, #343434);
-  --accent: light-dark(#4f46e5, #8b85ff);
-  --accent-text: light-dark(#fafafa, #121212);
+  --accent: #468FE5;
+  /* #f6fafe #020712 */
+  --bg: light-dark(color-mix(#ffffff 95%, var(--accent)), color-mix(#000000 80%, var(--accent)));
+  /* #030e1d #edf4fd */
+  --text: light-dark(color-mix(#000000 75%, var(--accent)), color-mix(#ffffff 90%, var(--accent)));
+  /* #4e5864 #bfc5cc */
+  --muted: light-dark(color-mix(var(--text) 65%, #ffffff), color-mix(var(--text) 85%, #000000));
+  /* #542127 #f7dbdd */
+  --error-text: light-dark(color-mix(var(--text) 65%, #ff0000), color-mix(var(--text) 85%, #ff0000));
+  /* #ffd6d2 #37171c */
+  --error-bg: light-dark(color-mix(var(--bg) 80%, #ff0000), color-mix(var(--bg) 75%, #ff0000));
+  /* #4d5936 #eff7e7 */
+  --warn-text: light-dark(color-mix(var(--text) 65%, #ffff00), color-mix(var(--text) 85%, #ffff00));
+  /* #f8fdcf #313c27 */
+  --warn-bg: light-dark(color-mix(var(--bg) 70%, #ffff00), color-mix(var(--bg) 75%, #ffff00));
+  /* #dfe3e7 #111a26 */
+  --code: light-dark(color-mix(var(--bg) 93%, #000000), color-mix(var(--bg) 90%, #ffffff));
+  /* #d6d9dd, #2d3641 */
+  --border: light-dark(color-mix(var(--bg) 90%, #000000), color-mix(var(--bg) 77%, #ffffff));
+  /* #ecf0f4, #0b1420 */
+  --accent-text: light-dark(color-mix(var(--bg) 97%, #000000), color-mix(var(--bg) 93%, #ffffff));
+  /* */
+  --hl-literal: var(--text);
+  --hl-letter: var(--accent);
+  /* #ff3f32 #d51c1b */
+  --hl-problem: light-dark(color-mix(var(--text) 15%, #ff0000), color-mix(var(--text) 10%, #ff0000));
+  /* #4246cc #b7b9ff */
+  --hl-bracket: light-dark(color-mix(var(--text) 20%, #5555ff), color-mix(var(--text) 20%, #aaaaff));
+  /* #b8802c #fcc276 */
+  --hl-slash: light-dark(color-mix(var(--text) 25%, #ffaa00), color-mix(var(--text) 30%, #ffaa00));
+  /* #c74a21 #ffac95 */
+  --hl-weight: light-dark(color-mix(var(--text) 20%, #ff5500), color-mix(var(--text) 50%, #ff5500));
+  /* #be185d #f9a8d4 */
+  --hl-filter: light-dark(color-mix(var(--text) 35%, #00ffff), color-mix(var(--text) 50%, #00ffff));
+  /* #049536 #a3fda6 */
+  --hl-quoted: light-dark(color-mix(var(--text) 40%, #00ff00), color-mix(var(--text) 50%, #00ff00));
 }
 
 :root[data-theme='light'] {
@@ -348,6 +373,7 @@ footer,
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  border: 1px solid var(--border);
 }
 
 .message-list.error {
@@ -479,40 +505,40 @@ footer,
 
 /* colors only: no weight or size changes, so the layer stays aligned with the input */
 .tok-literal {
-  color: var(--text);
+  color: var(--hl-literal);
 }
 
 .tok-letter {
-  color: light-dark(#4338ca, #a5a1ff);
+  color: var(--hl-letter);
 }
 
 .tok-letter-undefined,
 .tok-bracket-unmatched,
 .tok-weight-high {
-  color: light-dark(#c2271b, #ff8f85);
+  color: var(--hl-problem);
   text-decoration: underline wavy;
   text-underline-offset: 3px;
 }
 
 .tok-bracket {
-  color: light-dark(#0f766e, #5eead4);
+  color: var(--hl-bracket);
 }
 
 .tok-slash {
-  color: light-dark(#b45309, #fbbf24);
+  color: var(--hl-slash);
 }
 
 .tok-weight {
-  color: light-dark(#a21caf, #f0abfc);
+  color: var(--hl-weight);
 }
 
 .tok-caret,
 .tok-filter {
-  color: light-dark(#be185d, #f9a8d4);
+  color: var(--hl-filter);
 }
 
 .tok-quoted {
-  color: light-dark(#15803d, #86efac);
+  color: var(--hl-quoted);
 }
 
 /* ----- Help dialog ----- */

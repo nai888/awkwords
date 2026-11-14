@@ -1,32 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <title>Awkwords</title>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" viewBox="0 0 512 512">
   <defs>
-    <linearGradient id="bolt" x1="0.8" y1="0" x2="0.2" y2="1">
+    <linearGradient id="linear-gradient-1" x1="317.608" y1="65.92" x2="62.171" y2="284.697" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#ffe566"/>
       <stop offset="0.55" stop-color="#ffd000"/>
       <stop offset="1" stop-color="#f2a900"/>
     </linearGradient>
   </defs>
-  <rect width="512" height="512" rx="112" fill="#4f46e5"/>
-  <!-- rows of bars, a nod to the original icon's "text" the bolt strikes through -->
-  <g fill="#fff" opacity="0.22">
-    <rect x="70" y="86" width="26" height="62" rx="9"/>
-    <rect x="112" y="86" width="26" height="62" rx="9"/>
-    <rect x="154" y="86" width="26" height="62" rx="9"/>
-    <rect x="70" y="170" width="26" height="62" rx="9"/>
-    <rect x="112" y="170" width="26" height="62" rx="9"/>
-  </g>
-  <g fill="#000" opacity="0.28">
-    <rect x="70" y="372" width="30" height="58" rx="9"/>
-    <rect x="124" y="372" width="30" height="58" rx="9"/>
-    <rect x="286" y="372" width="30" height="58" rx="9"/>
-    <rect x="340" y="372" width="30" height="58" rx="9"/>
-    <rect x="394" y="372" width="30" height="58" rx="9"/>
-  </g>
-  <!-- the lightning bolt -->
-  <g transform="translate(259 256) scale(0.88) translate(-259 -256)">
-    <polygon points="300,40 148,290 240,290 204,472 370,214 276,214 352,40"
-             fill="url(#bolt)" stroke="#b97a00" stroke-width="10" stroke-linejoin="round"/>
-    <polygon points="300,40 148,290 188,290 332,46" fill="#fff" opacity="0.35"/>
+  <title>favicon.svg</title>
+  <g id="Layer_1" data-name="Layer 1">
+    <path d="M112 0 L400 0 C461.856 0 512 50.144 512 112 L512 400 C512 461.856 461.856 512 400 512 L112 512 C50.144 512 0 461.856 0 400 L0 112 C0 50.144 50.144 0 112 0 Z" fill="#468fe5"/>
+    <g opacity="0.22">
+      <path d="M79 86 L87 86 C91.971 86 96 90.029 96 95 L96 139 C96 143.971 91.971 148 87 148 L79 148 C74.029 148 70 143.971 70 139 L70 95 C70 90.029 74.029 86 79 86 Z" fill="#ffffff"/>
+      <path d="M121 86 L129 86 C133.971 86 138 90.029 138 95 L138 139 C138 143.971 133.971 148 129 148 L121 148 C116.029 148 112 143.971 112 139 L112 95 C112 90.029 116.029 86 121 86 Z" fill="#ffffff"/>
+      <path d="M163 86 L171 86 C175.971 86 180 90.029 180 95 L180 139 C180 143.971 175.971 148 171 148 L163 148 C158.029 148 154 143.971 154 139 L154 95 C154 90.029 158.029 86 163 86 Z" fill="#ffffff"/>
+      <path d="M79 170 L87 170 C91.971 170 96 174.029 96 179 L96 223 C96 227.971 91.971 232 87 232 L79 232 C74.029 232 70 227.971 70 223 L70 179 C70 174.029 74.029 170 79 170 Z" fill="#ffffff"/>
+      <path d="M121 170 L129 170 C133.971 170 138 174.029 138 179 L138 223 C138 227.971 133.971 232 129 232 L121 232 C116.029 232 112 227.971 112 223 L112 179 C112 174.029 116.029 170 121 170 Z" fill="#ffffff"/>
+    </g>
+    <g opacity="0.28">
+      <path d="M79 372 L91 372 C95.971 372 100 376.029 100 381 L100 421 C100 425.971 95.971 430 91 430 L79 430 C74.029 430 70 425.971 70 421 L70 381 C70 376.029 74.029 372 79 372 Z" fill="#000000"/>
+      <path d="M133 372 L145 372 C149.971 372 154 376.029 154 381 L154 421 C154 425.971 149.971 430 145 430 L133 430 C128.029 430 124 425.971 124 421 L124 381 C124 376.029 128.029 372 133 372 Z" fill="#000000"/>
+      <path d="M295 372 L307 372 C311.971 372 316 376.029 316 381 L316 421 C316 425.971 311.971 430 307 430 L295 430 C290.029 430 286 425.971 286 421 L286 381 C286 376.029 290.029 372 295 372 Z" fill="#000000"/>
+      <path d="M349 372 L361 372 C365.971 372 370 376.029 370 381 L370 421 C370 425.971 365.971 430 361 430 L349 430 C344.029 430 340 425.971 340 421 L340 381 C340 376.029 344.029 372 349 372 Z" fill="#000000"/>
+      <path d="M403 372 L415 372 C419.971 372 424 376.029 424 381 L424 421 C424 425.971 419.971 430 415 430 L403 430 C398.029 430 394 425.971 394 421 L394 381 C394 376.029 398.029 372 403 372 Z" fill="#000000"/>
+    </g>
+    <g>
+      <polygon points="295.08,65.92 161.32,285.92 242.28,285.92 210.6,446.08 356.68,219.04 273.96,219.04 340.84,65.92" fill="url(#linear-gradient-1)" stroke="#b97a00" stroke-width="8.8" stroke-linejoin="round"/>
+      <polygon points="295.08,65.92 161.32,285.92 196.52,285.92 323.24,71.2" fill="#ffffff" opacity="0.35"/>
+    </g>
   </g>
 </svg>
