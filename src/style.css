@@ -328,6 +328,7 @@ footer,
   min-height: 10rem;
   height: 20vh;
   resize: vertical;
+  font-size: 0.9rem;
 }
 
 .stats {
