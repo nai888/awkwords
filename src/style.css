@@ -13,7 +13,10 @@
   /* #4e5864 #bfc5cc */
   --muted: light-dark(color-mix(var(--text) 65%, #ffffff), color-mix(var(--text) 85%, #000000));
   /* #542127 #f7dbdd */
-  --error-text: light-dark(color-mix(var(--text) 65%, #ff0000), color-mix(var(--text) 85%, #ff0000));
+  --error-text: light-dark(
+    color-mix(var(--text) 65%, #ff0000),
+    color-mix(var(--text) 85%, #ff0000)
+  );
   /* #ffd6d2 #37171c */
   --error-bg: light-dark(color-mix(var(--bg) 80%, #ff0000), color-mix(var(--bg) 75%, #ff0000));
   /* #4d5936 #eff7e7 */
@@ -33,9 +36,15 @@
   /* #0762c2 #468fe5 */
   --hl-letter: light-dark(color-mix(var(--text) 24%, #0080ff), var(--accent));
   /* #c22120 #d51c1b */
-  --hl-problem: light-dark(color-mix(var(--text) 22%, #ff0000), color-mix(var(--text) 10%, #ff0000));
+  --hl-problem: light-dark(
+    color-mix(var(--text) 22%, #ff0000),
+    color-mix(var(--text) 10%, #ff0000)
+  );
   /* #720fe5 #b266ff */
-  --hl-bracket: light-dark(color-mix(var(--text) 10%, #8000ff), color-mix(var(--text) 25%, #a000ff));
+  --hl-bracket: light-dark(
+    color-mix(var(--text) 10%, #8000ff),
+    color-mix(var(--text) 25%, #a000ff)
+  );
   /* #90522d #fbc276 */
   --hl-slash: light-dark(color-mix(var(--text) 40%, #ff8000), color-mix(var(--text) 30%, #ffaa00));
   /* #a722af #fea1ff */
@@ -58,7 +67,11 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  transition: background-color var(--transition), border-color var(--transition), color var(--transition), backdrop-filter var(--transition);
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition),
+    backdrop-filter var(--transition);
 }
 
 html {
@@ -73,7 +86,7 @@ body {
   font-family: var(--font);
   font-optical-sizing: auto;
   font-style: normal;
-  font-variation-settings: "wdth" 100;
+  font-variation-settings: 'wdth' 100;
   font-weight: regular;
   line-height: 1.5;
   -webkit-text-size-adjust: 100%;
@@ -220,7 +233,7 @@ footer,
 }
 
 .grow {
-  flex: 1
+  flex: 1;
 }
 
 .mono {

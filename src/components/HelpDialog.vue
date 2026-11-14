@@ -45,92 +45,192 @@ defineExpose({ open })
       <table>
         <tbody>
           <tr>
-            <th><code>a</code></th>
+            <th>
+              <code><span class="tok-literal">a</span></code>
+            </th>
             <td>
               Any lowercase letter is treated literally.<br />
-              <code>tu</code> &rarr; <i>tu</i>
+              <code><span class="tok-literal">tu</span></code> &rarr; <i>tu</i>
             </td>
           </tr>
           <tr>
-            <th><code>/</code></th>
+            <th>
+              <code><span class="tok-slash">/</span></code>
+            </th>
             <td>
               Splits multiple options; one is chosen at random.<br />
-              <code>tu/top/kan</code> &rarr; <i>tu</i>, <i>top</i>, or <i>kan</i>
+              <code>
+                <span class="tok-literal">tu</span>
+                <span class="tok-slash">/</span>
+                <span class="tok-literal">top</span>
+                <span class="tok-slash">/</span>
+                <span class="tok-literal">kan</span>
+              </code>
+              &rarr; <i>tu</i>, <i>top</i>, or <i>kan</i>
             </td>
           </tr>
           <tr>
-            <th><code>[ ]</code></th>
+            <th>
+              <code><span class="tok-bracket">[ ]</span></code>
+            </th>
             <td>
               Treats the content as one unit.<br />
-              <code>s[tu/top/kan]</code> &rarr; <i>stu</i>, <i>stop</i>, or <i>skan</i>
+              <code>
+                <span class="tok-literal">s</span>
+                <span class="tok-bracket">[</span>
+                <span class="tok-literal">tu</span>
+                <span class="tok-slash">/</span>
+                <span class="tok-literal">top</span>
+                <span class="tok-slash">/</span>
+                <span class="tok-literal">kan</span>
+                <span class="tok-bracket">]</span>
+              </code>
+              &rarr; <i>stu</i>, <i>stop</i>, or <i>skan</i>
             </td>
           </tr>
           <tr>
-            <th><code>( )</code></th>
+            <th>
+              <code><span class="tok-bracket">( )</span></code>
+            </th>
             <td>
-              Like <code>[ ]</code>, but the content appears only half of the time.<br />
-              <code>s(tu/top/kan)</code> &rarr; <i>s</i>, <i>stu</i>, <i>stop</i>, or <i>skan</i>
+              Like <code><span class="tok-bracket">[ ]</span></code
+              >, but the content appears only half of the time.<br />
+              <code>
+                <span class="tok-literal">s</span>
+                <span class="tok-bracket">(</span>
+                <span class="tok-literal">tu</span>
+                <span class="tok-slash">/</span>
+                <span class="tok-literal">top</span>
+                <span class="tok-slash">/</span>
+                <span class="tok-literal">kan</span>
+                <span class="tok-bracket">)</span>
+              </code>
+              &rarr; <i>s</i>, <i>stu</i>, <i>stop</i>, or <i>skan</i>
             </td>
           </tr>
           <tr>
             <th>empty</th>
             <td>
               Options can be empty.<br />
-              <code>[a/]</code> &rarr; <i>a</i> or nothing
+              <code>
+                <span class="tok-bracket">[</span>
+                <span class="tok-literal">a</span>
+                <span class="tok-slash">/</span>
+                <span class="tok-bracket">]</span>
+              </code>
+              &rarr; <i>a</i> or nothing
             </td>
           </tr>
           <tr>
-            <th><code>A</code></th>
+            <th>
+              <code><span class="tok-letter">A</span></code>
+            </th>
             <td>
               A capital letter references a subpattern.<br />
-              If <code>A</code> = <code>tu/top/kan</code>, then <code>sA</code> &rarr; <i>stu</i>,
-              <i>stop</i>, or <i>skan</i>
+              If <code><span class="tok-letter">A</span></code> =
+              <code>
+                <span class="tok-literal">tu</span>
+                <span class="tok-slash">/</span>
+                <span class="tok-literal">top</span>
+                <span class="tok-slash">/</span>
+                <span class="tok-literal">kan</span> </code
+              >, then
+              <code><span class="tok-literal">s</span><span class="tok-letter">A</span></code>
+              &rarr; <i>stu</i>, <i>stop</i>, or <i>skan</i>
             </td>
           </tr>
         </tbody>
       </table>
       <p>
-        Brackets nest without limit: <code>at(a(z))</code> gives <i>at</i>, <i>ata</i>, or
-        <i>ataz</i>, but never <i>atz</i>. Spaces outside quotes are ignored.
+        Brackets nest without limit:
+        <code>
+          <span class="tok-literal">at</span>
+          <span class="tok-bracket">(</span>
+          <span class="tok-literal">a</span>
+          <span class="tok-bracket">(</span>
+          <span class="tok-literal">z</span>
+          <span class="tok-bracket">))</span>
+        </code>
+        gives <i>at</i>, <i>ata</i>, or <i>ataz</i>, but never <i>atz</i>. Spaces outside quotes are
+        ignored.
       </p>
       <h3>Weights</h3>
       <p>
-        Write <code>*</code> and a whole number from 1 to 128 after an option to multiply its
-        chance. Options without a weight have weight 1.
+        Write <code><span class="tok-weight">*</span></code> and a whole number from 1 to 128 after
+        an option to multiply its chance. Options without a weight have weight 1.
       </p>
       <p>
-        <code>a/b*3/c/d/kek*6</code> &rarr; <i>b</i> is three times as likely as <i>a</i>, <i>c</i>,
-        or <i>d</i>; <i>kek</i> is six times as likely.
+        <code>
+          <span class="tok-literal">a</span>
+          <span class="tok-slash">/</span>
+          <span class="tok-literal">b</span>
+          <span class="tok-weight">*3</span>
+          <span class="tok-slash">/</span>
+          <span class="tok-literal">c</span>
+          <span class="tok-slash">/</span>
+          <span class="tok-literal">d</span>
+          <span class="tok-slash">/</span>
+          <span class="tok-literal">kek</span>
+          <span class="tok-weight">*6</span>
+        </code>
+        &rarr; <i>b</i> is three times as likely as <i>a</i>, <i>c</i>, or <i>d</i>; <i>kek</i> is
+        six times as likely.
       </p>
       <p>
         The &#x2696; buttons open a helper where you can adjust the weight of each top-level option
-        with + / &#x2212; and see its chance as a percentage. It writes the <code>*N</code> markers
-        into the pattern for you.
+        with + / &#x2212; and see its chance as a percentage. It writes the
+        <code><span class="tok-weight">*N</span></code> markers into the pattern for you.
       </p>
       <h3>Escaping</h3>
       <p>
         Text in double quotes is copied as-is, so capital letters, slashes, brackets and so on can
-        be generated. <code>heh"[mY/worD)]"</code> &rarr; <i>heh[mY/worD)]</i>. A doubled quote
-        <code>""</code> without anything in between produces one <code>"</code>.
+        be generated.
+        <code>
+          <span class="tok-literal">heh</span>
+          <span class="tok-quoted">"[mY/worD)]"</span>
+        </code>
+        &rarr; <i>heh[mY/worD)]</i>. A doubled quote
+        <code><span class="tok-quoted">""</span></code> without anything in between produces one
+        <i>"</i>.
       </p>
       <h3>Pattern filtering</h3>
       <p>
-        Put <code>^</code> and a fixed string right after a fragment to forbid it: if that fragment
-        renders exactly that string, the word is discarded. Add several filters by repeating
-        <code>^</code>. For example, <code>t[VV]^aa^ii^uu</code> (where V is a subpattern of
-        <code>a/i/u</code>) will produce outputs like <i>tai</i>, <i>tua</i>, or <i>tiu</i>, but
-        will never produce <i>taa</i>, <i>tii</i>, or <i>tuu</i>.
+        Put <code><span class="tok-caret">^</span></code> and a fixed string right after a fragment
+        to forbid it: if that fragment renders exactly that string, the word is discarded. Add
+        several filters by repeating <code><span class="tok-caret">^</span></code
+        >. For example,
+        <code>
+          <span class="tok-literal">t</span>
+          <span class="tok-bracket">[</span>
+          <span class="tok-letter">VV</span>
+          <span class="tok-bracket">]</span>
+          <span class="tok-caret">^</span>
+          <span class="tok-filter">aa</span>
+          <span class="tok-caret">^</span>
+          <span class="tok-filter">ii</span>
+          <span class="tok-caret">^</span>
+          <span class="tok-filter">uu</span>
+        </code>
+        (where V is a subpattern of
+        <code>
+          <span class="tok-literal">a</span>
+          <span class="tok-slash">/</span>
+          <span class="tok-literal">i</span>
+          <span class="tok-slash">/</span>
+          <span class="tok-literal">u</span></code
+        >) will produce outputs like <i>tai</i>, <i>tua</i>, or <i>tiu</i>, but will never produce
+        <i>taa</i>, <i>tii</i>, or <i>tuu</i>.
       </p>
       <p>
         Quotes work inside filters. Other syntax (brackets, slashes, weights, subpattern letters)
         ends the filter, because a filter is a fixed string, not a pattern.
       </p>
-      <h3>Colours</h3>
+      <h3>Colors</h3>
       <p>
-        Patterns are colour-coded as you type: subpattern letters, brackets,
-        <code>/</code> separators, weights, filters and quoted text each have their own colour. A
-        red wavy underline marks a problem, e.g., a capital letter with no subpattern, a bracket
-        without its partner, or a weight above 128.
+        Patterns are color-coded as you type: subpattern letters, brackets,
+        <code><span class="tok-slash">/</span></code> separators, weights, filters and quoted text
+        each have their own color. A red wavy underline marks a problem, e.g., a capital letter with
+        no subpattern, a bracket without its partner, or a weight above 128.
       </p>
       <h3>Generating</h3>
       <p>
