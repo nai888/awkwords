@@ -1,10 +1,11 @@
+import { version as VERSION } from '../../../package.json'
 import type { GeneratorConfig, Subpattern } from './types'
 import { MAX_WORDS } from './validate'
 
 /**
  * Settings files use the Awkwords 1.2 text format (extension `.awkw`):
  *
- *   #awkwords version 1.3.0
+ *   #awkwords version {current version}
  *   V:a/i/u    <- subpattern: one capital letter, a colon, its pattern
  *   r:CV(N)    <- main pattern
  *   n:30       <- number of words
@@ -23,7 +24,7 @@ export const DEFAULT_FILENAME = 'awkwords-settings.awkw'
 
 /** Line order: version, subpatterns, pattern, count, then flags. */
 export function serializeSettings(config: GeneratorConfig): string {
-  const lines = ['#awkwords version 1.3.0']
+  const lines = [`#awkwords version ${VERSION}`]
   for (const sp of config.subpatterns) {
     // save every row that has anything filled in
     if (sp.name !== '' || sp.content !== '') {
