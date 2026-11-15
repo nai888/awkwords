@@ -6,7 +6,11 @@ The format of this changelog is based on [Keep a Changelog](https://keepachangel
 
 ## [Unreleased](https://github.com/nai888/awkwords/compare/v1.3.0...HEAD)
 
-## [v1.3.0](https://github.com/nai888/awkwords/compare/v1.2...v1.3.0)
+### Changed
+
+- Automatically set the version in saved `.awkw` files based on the current package version.
+
+## [v1.3.0](https://github.com/nai888/awkwords/compare/v1.2...v1.3.0) - 2026-11-14
 
 ### Added v1.3.0
 
