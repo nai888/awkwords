@@ -1,4 +1,4 @@
-import { version as VERSION } from '../../../package.json'
+import { version as VERSION } from '../../package.json'
 import type { GeneratorConfig, Subpattern } from './types'
 import { MAX_WORDS } from './validate'
 
